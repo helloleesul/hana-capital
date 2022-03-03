@@ -1,15 +1,14 @@
 <template>
-  <div id="app">
+  <div id="default-page">
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'Default',
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
 </style>
