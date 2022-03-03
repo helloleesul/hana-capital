@@ -2,15 +2,23 @@
   <b-nav
     class="position-fixed"
     :style="{
-      bottom: '3rem',
+      bottom: '22rem',
       right: '3rem',
+      display: 'block !important',
+      zIndex: 2 
     }"
   >
     <a
-      class="go-button rounded-circle d-flex justify-content-center align-items-center fw-900 text-20"
-      href="#inquiry" v-smooth-scroll="{ duration: 200, offset: -200 }"
+      class="go-button d-flex justify-content-center align-items-center fw-900 text-20 mb-2"
+      href="#inquiry" v-smooth-scroll="{ duration: 200, offset: 40 }"
     >
-        상담신청
+        대출상품
+    </a>
+    <a
+      class="go-button d-flex justify-content-center align-items-center fw-900 text-20"
+      href="#top" v-smooth-scroll="{ duration: 200, offset: 0 }"
+    >
+        TOP
     </a>
   </b-nav>
 </template>
@@ -24,11 +32,10 @@ export default {
 <style lang="scss" scoped>
 .go-button {
     width: 6rem;
-    height: 6rem;
-    background: #FFDF14;
+    height: 3rem;
+    background: #009591;
+    color: #fff;
     border: 2px solid #000;
-    box-shadow: 2px 2px 0 0;
-    font-family: 'SBAggroB', "NanumSquare", sans-serif;
     &:hover {
       color: inherit;
     }

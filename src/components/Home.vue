@@ -1,10 +1,10 @@
 <template>
   <main>
       <!-- 상단 메인 -->
-      <section class="yellow">
+      <section class="border-bottom">
         <b-container>
           <b-row class="text-center align-items-center">
-            <h2 class="hana font-italic text-50">야호캐피탈</h2>
+            <h2 class="hana font-italic text-50">하나캐피탈</h2>
             <p class="fw-900 text-50 mb-5">아파트최고한도(후순위)</p>
             <span class="text-24">전국 모든 아파트소유자면 누구나가능</span>
           </b-row>
@@ -74,17 +74,8 @@
           </b-row>
         </b-container>
       </section>
-      <!-- 상담신청 -->
-      <section id="inquiry">
-        <b-container class="position-relative">
-          <b-row class="align-items-center yellow-wrap">
-            <p class="text-30 fw-900 mb-4">대출상담 신청하기</p>
-            <Inquiry />
-          </b-row>
-        </b-container>
-      </section>
       <!-- 대출상품 -->
-      <section class="bg-white">
+      <section id="inquiry">
         <b-container>
           <b-row class="text-center align-items-center justify-content-center">
             <div>
@@ -104,6 +95,15 @@
                 </li>
               </ul>
             </div>
+          </b-row>
+        </b-container>
+      </section>
+      <!-- 상담신청 -->
+      <section class="position-fixed w-100 bg-white" :style="{left:0, bottom:0, zIndex:1}">
+        <b-container class="position-relative py-5">
+          <b-row class="align-items-center">
+            <p class="text-30 fw-900 mb-4">대출상담 신청하기</p>
+            <Inquiry />
           </b-row>
         </b-container>
       </section>
