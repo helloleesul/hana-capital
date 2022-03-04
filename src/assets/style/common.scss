@@ -98,6 +98,24 @@ main {
   }
 }
 
+.go-button {
+  width: 6rem;
+  padding: .5rem 0;
+  background: #009591;
+  // background: #ed1651;
+  color: #fff !important;
+  &:hover {
+    color: inherit;
+  }
+  &.top {
+    background: #fff;
+    // border: 1px solid #ed1651;
+    // color: #ed1651 !important;
+    border: 1px solid #009591;
+    color: #009591 !important;
+  }
+}
+
 .statusSelected input[type="radio"] {
   display: none;
 }

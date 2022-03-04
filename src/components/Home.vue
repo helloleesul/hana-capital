@@ -75,12 +75,12 @@
         </b-container>
       </section>
       <!-- 대출상품 -->
-      <section id="inquiry">
+      <section id="loanItems">
         <b-container>
           <b-row class="text-center align-items-center justify-content-center">
             <div>
               <h3 class="mb-5 text-30">
-                <span class="hana fw-900 font-italic">야호 캐피탈 </span>
+                <span class="hana fw-900 font-italic">하나캐피탈 </span>
                 <span class="mx-2">대출상품</span>
               </h3>
               <ul class="d-flex justify-content-between align-items-center w-100 m-0 p-0"
@@ -99,11 +99,15 @@
         </b-container>
       </section>
       <!-- 상담신청 -->
-      <section class="position-fixed w-100 bg-white" :style="{left:0, bottom:0, zIndex:1}">
-        <b-container class="position-relative py-5">
-          <b-row class="align-items-center">
-            <p class="text-30 fw-900 mb-4">대출상담 신청하기</p>
-            <Inquiry />
+      <section class="position-fixed w-100" :style="{left:0, bottom:0, zIndex:1, background:'#00625f', height:'310px'}">
+        <b-container class="position-relative p-0 text-white" :style="{height:'inherit'}">
+          <b-row class="align-items-top position-absolute w-100" :style="{left:'50%',top:'50%',transform:'translate(-50%,-50%)'}">
+            <b-col>
+              <p class="text-30 fw-900">대출상담 신청하기</p>
+            </b-col>
+            <b-col class="col-8">
+              <Inquiry />
+            </b-col>
           </b-row>
         </b-container>
       </section>
