@@ -82,6 +82,8 @@ export default {
         });
         this.input.name = null;
         this.input.selected = null;
+      } else {
+        alert("모두 입력하세여");
       }
     },
     editBtn(item) {
