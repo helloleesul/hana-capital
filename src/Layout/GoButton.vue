@@ -5,17 +5,18 @@
       bottom: '3rem',
       right: '3rem',
       display: 'block !important',
-      zIndex: 2,
     }"
   >
     <a
       class="go-button d-block justify-content-center text-center align-items-center fw-900 text-20 call"
+      href="#"
     >
       <font-awesome-icon icon="phone" />
       <span class="d-block">전화상담</span>
     </a>
     <a
       class="go-button d-block justify-content-center text-center align-items-center fw-900 text-20 kakao"
+      href="#"
     >
       <font-awesome-icon icon="comment" />
       <span class="d-block">카톡상담</span>
