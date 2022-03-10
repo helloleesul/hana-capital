@@ -1,8 +1,19 @@
 <template>
-  <footer id="footer">
+  <footer id="footer" :style="{ color: '#999' }">
     <b-container>
-      <b-row class="align-items-center mb-4">
-        <b-col class="footer-btns">
+      <b-row :style="{ borderBottom: '1px solid #666' }" class="mb-5 pb-4">
+        <b-col>
+          <b-navbar-brand tag="h1" class="m-0 p-0 fw-900 text-30 hana">
+            <img
+              src="@/assets/images/logo.svg"
+              alt="하나캐피탈"
+              width="50"
+              :style="{ filter: 'grayscale(1) brightness(1.4)' }"
+            />
+            하나 캐피탈
+          </b-navbar-brand>
+        </b-col>
+        <b-col class="footer-btns text-end">
           <b-btn v-b-modal.check1 variant="link">개인정보취급방침</b-btn>
           <b-btn v-b-modal.check2 variant="link">이용동의</b-btn>
           <b-btn variant="link">등록업체조회</b-btn>
@@ -49,15 +60,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.footer-btns {
-  button {
-    text-decoration: none;
-    font-size: 20px;
-    color: #999;
-  }
-}
-p {
-  color: #999;
-}
-</style>
+<style lang="scss" scoped></style>

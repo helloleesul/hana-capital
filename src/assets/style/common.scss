@@ -65,6 +65,43 @@ main {
   }
 }
 
+.main-slide {
+  .VueCarousel-slide {
+    height: 30rem;
+  }
+  .VueCarousel-dot-container {
+    display: flex !important;
+    justify-content: center;
+    gap: 1rem;
+    .VueCarousel-dot {
+      font-size: 20px;
+      height: 3rem !important;
+      border-radius: 0 !important;
+      background-color: transparent !important;
+      border: 1px solid #fff !important;
+      padding: 0 !important;
+      color: #fff;
+      margin: 0 !important;
+      &.VueCarousel-dot--active {
+        background-color: #fff !important;
+        color: #000;
+      }
+      &:nth-child(1)::before {
+        content: "햇살론";
+      }
+      &:nth-child(2)::before {
+        content: "사잇돌";
+      }
+      &:nth-child(3)::before {
+        content: "하나드림론";
+      }
+      &:nth-child(4)::before {
+        content: "하나슈퍼드림론";
+      }
+    }
+  }
+}
+
 #admin-page {
   // position: relative;
   main {
@@ -102,11 +139,17 @@ main {
 }
 
 #footer {
-  background: #eee;
-  margin-bottom: 380px;
+  background: #252830;
   text-align: justify;
   .container {
     padding: 4rem 0;
+  }
+  .footer-btns {
+    button {
+      text-decoration: none;
+      font-size: 20px;
+      color: #999;
+    }
   }
 }
 
@@ -114,17 +157,21 @@ main {
   width: 6rem;
   padding: 0.5rem 0;
   background: #009591;
-  // background: #ed1651;
   color: #fff !important;
   &:hover {
     color: inherit;
   }
   &.top {
-    background: #fff;
-    // border: 1px solid #ed1651;
-    // color: #ed1651 !important;
-    border: 1px solid #009591;
-    color: #009591 !important;
+    background: #000;
+    color: #eee !important;
+  }
+  &.kakao {
+    background: #fee50e;
+    color: #634b4b !important;
+  }
+  &.inquiry {
+    background: #ec1751;
+    color: #fff !important;
   }
 }
 

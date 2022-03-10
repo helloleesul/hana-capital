@@ -2,32 +2,41 @@
   <b-nav
     class="position-fixed"
     :style="{
-      bottom: '26rem',
+      bottom: '3rem',
       right: '3rem',
       display: 'block !important',
       zIndex: 2,
     }"
   >
     <a
-      class="go-button d-flex justify-content-center align-items-center fw-900 text-20"
-      href="#loanItems"
-      v-smooth-scroll="{ duration: 200, offset: 40 }"
-      :style="{ zIndex: 1 }"
+      class="go-button d-block justify-content-center text-center align-items-center fw-900 text-20 call"
     >
-      <span>대출상품</span>
+      <font-awesome-icon icon="phone" />
+      <span class="d-block">전화상담</span>
     </a>
     <a
-      class="go-button d-flex justify-content-center align-items-center fw-900 text-20 position-relative top"
+      class="go-button d-block justify-content-center text-center align-items-center fw-900 text-20 kakao"
+    >
+      <font-awesome-icon icon="comment" />
+      <span class="d-block">카톡상담</span>
+    </a>
+    <a
+      class="go-button d-block justify-content-center text-center align-items-center fw-900 text-20 inquiry"
+      href="#inquiry"
+      v-smooth-scroll="{ duration: 200, offset: -200 }"
+      :style="{ zIndex: 1 }"
+    >
+      <font-awesome-icon icon="paper-plane" />
+      <span class="d-block">간편신청</span>
+    </a>
+    <a
+      class="go-button d-block justify-content-center text-center align-items-center fw-900 text-20 top"
       href="#top"
       v-smooth-scroll="{ duration: 200, offset: 0 }"
       :style="{ zIndex: -1 }"
     >
-      <font-awesome-icon
-        icon="angle-up"
-        class="position-absolute"
-        :style="{ top: '.5rem' }"
-      />
-      <span class="mt-3">TOP</span>
+      <font-awesome-icon icon="angle-up" />
+      <span class="d-block">TOP</span>
     </a>
   </b-nav>
 </template>

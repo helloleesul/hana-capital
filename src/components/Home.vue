@@ -1,171 +1,112 @@
 <template>
   <main>
-    <!-- 상단 메인 -->
-    <section class="border-bottom">
+    <section class="border-bottom main-slide">
+      <b-container>
+        <carousel
+          :per-page="1"
+          :speed="1000"
+          centerMode
+          :paginationSize="150"
+          paginationPosition="bottom-overlay"
+        >
+          <slide>
+            <a
+              class="go-button d-block w-100 h-100 justify-content-center text-center align-items-center fw-900 text-20 top"
+              href="#item-1"
+              v-smooth-scroll="{ duration: 200, offset: 0 }"
+              :style="{ zIndex: -1 }"
+            >
+              <span class="d-block">item1</span>
+            </a></slide
+          >
+          <slide>
+            <a
+              class="go-button d-block w-100 h-100 justify-content-center text-center align-items-center fw-900 text-20 top"
+              href="#item-2"
+              v-smooth-scroll="{ duration: 200, offset: 0 }"
+              :style="{ zIndex: -1 }"
+            >
+              <span class="d-block">item2</span>
+            </a></slide
+          >
+          <slide>
+            <a
+              class="go-button d-block w-100 h-100 justify-content-center text-center align-items-center fw-900 text-20 top"
+              href="#item-3"
+              v-smooth-scroll="{ duration: 200, offset: 0 }"
+              :style="{ zIndex: -1 }"
+            >
+              <span class="d-block">item3</span>
+            </a></slide
+          >
+          <slide>
+            <a
+              class="go-button d-block w-100 h-100 justify-content-center text-center align-items-center fw-900 text-20 top"
+              href="#item-4"
+              v-smooth-scroll="{ duration: 200, offset: 0 }"
+              :style="{ zIndex: -1 }"
+            >
+              <span class="d-block">item4</span>
+            </a></slide
+          >
+        </carousel>
+      </b-container>
+    </section>
+    <section class="border-bottom" id="item-1">
       <b-container>
         <b-row class="text-center align-items-center">
-          <h2 class="hana font-italic text-50">하나캐피탈</h2>
+          <h2 class="hana font-italic text-50">item1</h2>
           <p class="fw-900 text-50 mb-5">아파트최고한도(후순위)</p>
           <span class="text-24">전국 모든 아파트소유자면 누구나가능</span>
         </b-row>
       </b-container>
     </section>
-    <!-- 멘트 -->
-    <section class="border-bottom">
+    <section class="border-bottom" id="item-2">
       <b-container>
         <b-row class="text-center align-items-center">
-          <p class="fw-900 text-30 mb-3">
-            필요할 때만 쓰고, 이자는 사용한 만큼만
-          </p>
-          <span class="text-20" :style="{ color: '#aaa' }">
-            매일 사용한 금액에 대해서만 이자가 발생합니다. <br />
-            필요할 때만 꺼내쓰고, 언제든지 편리하게 돈을 채워넣어 이자의 부담을
-            덜 수 있습니다.
-          </span>
+          <h2 class="hana font-italic text-50">item2</h2>
+          <p class="fw-900 text-50 mb-5">아파트최고한도(후순위)</p>
+          <span class="text-24">전국 모든 아파트소유자면 누구나가능</span>
         </b-row>
       </b-container>
     </section>
-    <!-- 대출소개 -->
-    <section>
+    <section class="border-bottom" id="item-3">
       <b-container>
-        <b-row class="m-auto">
-          <b-col>
-            <p class="text-32 fw-900 yellow-underline mb-5">대출소개</p>
-            <span class="d-block text-18"
-              >방문없이 인터넷, 스마트폰, 전화로 <br />대출신청이 가능한
-              상품입니다.</span
-            >
-          </b-col>
-          <b-col class="col-7">
-            <table>
-              <thead>
-                <tr>
-                  <th>구분</th>
-                  <th :style="{ background: '#535D71', color: '#fff' }">
-                    내용
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in table" :key="item.index">
-                  <th>{{ item.th }}</th>
-                  <td>{{ item.td }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </b-col>
+        <b-row class="text-center align-items-center">
+          <h2 class="hana font-italic text-50">item3</h2>
+          <p class="fw-900 text-50 mb-5">아파트최고한도(후순위)</p>
+          <span class="text-24">전국 모든 아파트소유자면 누구나가능</span>
         </b-row>
       </b-container>
     </section>
-    <!-- 대출진행절차 -->
-    <section>
+    <section class="border-bottom" id="item-4">
       <b-container>
-        <b-row class="m-auto">
-          <b-col>
-            <p class="text-32 fw-900 yellow-underline mb-5">대출진행절차</p>
-            <span class="d-block text-18"
-              >담당 상담원이 말씀드린 서류를 <br />안내한 FAX번호로
-              보내주세요.</span
-            >
-          </b-col>
-          <b-col class="col-7">
-            <ol class="p-0 m-0">
-              <li
-                v-for="(step, index) in steps"
-                :key="step.index"
-                class="mb-4 d-flex align-items-center"
-              >
-                <div
-                  class="text-center text-18 me-4"
-                  :style="{
-                    background: '#E4E4E6',
-                    width: '5rem',
-                    height: '5rem',
-                    paddingTop: '1rem',
-                    borderRadius: '100%',
-                  }"
-                >
-                  <span class="fw-900">{{ index + 1 }}</span>
-                  <p class="m-0" :style="{ lineHeight: '1' }">step</p>
-                </div>
-                <div>
-                  <p class="mb-1 text-20 fw-900">{{ step.title }}</p>
-                  <span class="text-18">{{ step.content }}</span>
-                </div>
-              </li>
-            </ol>
-          </b-col>
-        </b-row>
-      </b-container>
-    </section>
-    <!-- 대출상품 -->
-    <section id="loanItems">
-      <b-container>
-        <b-row class="text-center align-items-center justify-content-center">
-          <div>
-            <h3 class="mb-5 text-30">
-              <span class="hana fw-900 font-italic">하나캐피탈 </span>
-              <span class="mx-2">대출상품</span>
-            </h3>
-            <ul
-              class="d-flex justify-content-between align-items-center w-100 m-0 p-0"
-              :style="{ flexWrap: 'wrap', gap: '10px' }"
-            >
-              <li
-                v-for="item in loanItems"
-                :key="item.index"
-                :style="{ width: '16%' }"
-              >
-                <b-btn
-                  @click="modalShow(item)"
-                  class="w-100 position-relative border-0"
-                  :style="{ height: '8rem', background: item.color }"
-                >
-                  <span class="text-20 loanItem">
-                    {{ item.name }}
-                  </span>
-                  <font-awesome-icon
-                    class="loanItem-icon fa-3x"
-                    :icon="item.icon"
-                  />
-                </b-btn>
-              </li>
-            </ul>
-          </div>
+        <b-row class="text-center align-items-center">
+          <h2 class="hana font-italic text-50">item4</h2>
+          <p class="fw-900 text-50 mb-5">아파트최고한도(후순위)</p>
+          <span class="text-24">전국 모든 아파트소유자면 누구나가능</span>
         </b-row>
       </b-container>
     </section>
     <!-- 상담신청 -->
     <section
-      class="position-fixed w-100"
+      id="inquiry"
+      class="w-100"
       :style="{
-        left: 0,
-        bottom: 0,
-        zIndex: 1,
-        background: '#00625f',
-        height: '380px',
+        background: 'linear-gradient(to top,  #252830 50%, transparent 50%)',
       }"
     >
       <b-container
-        class="position-relative p-0 text-white"
-        :style="{ height: 'inherit' }"
+        class="p-0 bg-black text-white py-5"
+        :style="{ borderRadius: '1.5rem' }"
       >
-        <b-row
-          class="align-items-top position-absolute w-100"
-          :style="{
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%,-50%)',
-          }"
-        >
-          <b-col>
-            <span>상담시간: 평일 09:00 ~ 18:30</span>
-            <p class="text-50 fw-900">02-1234-5678</p>
-            <span>보다 자세한 안내를 원하시면 전화안내로 상담받으세요.</span>
-          </b-col>
-          <b-col class="col-8">
-            <Inquiry />
-          </b-col>
+        <b-row class="text-center mb-5">
+          <h2 class="fw-900">
+            <span class="border-bottom">간편상담 신청하기</span>
+          </h2>
+        </b-row>
+        <b-row class="m-auto w-50">
+          <Inquiry />
         </b-row>
       </b-container>
     </section>
