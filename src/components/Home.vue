@@ -29,23 +29,24 @@
                     <p class="text-30 mb-1">{{ item.subTitle }}</p>
                     <h3 class="text-65 fw-900">{{ item.title }}</h3>
                     <span
-                      class="text-30 fw-900 py-2 px-4 my-4 d-block"
+                      class="text-30 fw-900 py-2 px-4 my-4 d-inline-block"
                       :style="{ border: '1px solid', borderRadius: '2rem' }"
                       >{{ item.pill }}</span
                     >
                     <ul>
-                      <li v-for="list in item.description" :key="list.id">
+                      <li
+                        v-for="list in item.description"
+                        :key="list.id"
+                        class="text-24 fw-700"
+                      >
                         {{ list }}
                       </li>
                     </ul>
                   </div>
                 </b-col>
-                <b-col
-                  class="col-6"
-                  :style="{ background: item.color, filter: 'brightness(1.2)' }"
-                ></b-col>
-              </b-row> </a
-          ></slide>
+              </b-row>
+            </a></slide
+          >
         </carousel>
       </b-container>
     </section>
