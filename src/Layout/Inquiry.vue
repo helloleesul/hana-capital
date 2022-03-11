@@ -63,7 +63,7 @@
           class="mb-3"
         >
           <b-form-input
-            :style="{ width: '90%' }"
+            :style="{ width: '85%' }"
             class="d-inline"
             id="contents-input"
             name="contents-input"
@@ -72,7 +72,7 @@
             :state="getValidationState(validationContext)"
             aria-describedby="contents-input-feedback"
           ></b-form-input>
-          <span class="d-inline-block text-end" :style="{ width: '10%' }"
+          <span class="d-inline-block text-end" :style="{ width: '15%' }"
             >만원</span
           >
           <b-form-invalid-feedback id="contents-input-feedback">{{

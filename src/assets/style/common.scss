@@ -14,6 +14,13 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
 }
 
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+}
+
 input:-webkit-autofill {
   box-shadow: 0 0 0 1000px white inset;
   -webkit-box-shadow: 0 0 0 1000px white inset;
@@ -61,7 +68,7 @@ input:-webkit-autofill:active {
 main {
   .container {
     color: #000;
-    padding: 8rem 0;
+    padding: 4rem 0;
   }
 }
 
@@ -70,10 +77,7 @@ main {
     border-radius: 1rem;
     overflow: hidden;
     .VueCarousel-slide {
-      height: 30rem;
-      > a {
-        padding: 2rem;
-      }
+      height: 45rem;
     }
     .VueCarousel-pagination--bottom-overlay {
       bottom: 1rem !important;
@@ -92,16 +96,27 @@ main {
           color: #fff;
           margin: 0 !important;
           outline: none !important;
+          font-weight: 900;
           &.VueCarousel-dot--active {
             background-color: #fff !important;
-            border: 1px solid #000 !important;
-            color: #000;
+            &:nth-child(1)::before {
+              color: #ff9c01;
+            }
+            &:nth-child(2)::before {
+              color: #0a6e01;
+            }
+            &:nth-child(3)::before {
+              color: #31c9ee;
+            }
+            &:nth-child(4)::before {
+              color: #43b546;
+            }
           }
           &:nth-child(1)::before {
             content: "햇살론";
           }
           &:nth-child(2)::before {
-            content: "사잇돌";
+            content: "사잇돌2";
           }
           &:nth-child(3)::before {
             content: "하나드림론";
