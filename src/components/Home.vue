@@ -1,12 +1,13 @@
 <template>
   <main>
-    <section class="border-bottom main-slide">
+    <section class="main-slide">
       <b-container>
         <carousel
           :per-page="1"
           :speed="1000"
-          :autoplayTimeout="5000"
+          :autoplayTimeout="4500"
           autoplay
+          loop
           centerMode
           :paginationSize="150"
           paginationPosition="bottom-overlay"
@@ -51,17 +52,16 @@
       </b-container>
     </section>
     <section
-      class="border-bottom"
+      class="border-top"
       v-for="(item, i) in items"
       :id="item.name"
       :key="item.name"
     >
-      <b-container class="">
+      <b-container>
         <b-row
           class="text-white"
           :style="{
             background: item.color,
-            borderRadius: '1rem',
             padding: '4rem',
           }"
         >
@@ -70,52 +70,33 @@
           <ul class="itemStyle my-5">
             <li>
               <span>대출한도</span>
-              <div>
-                <p>
-                  {{ item.card.condition.limit[0] }}
-                </p>
-                <span>
-                  {{ item.card.condition.limit[1] }}
-                </span>
-              </div>
+              <div v-html="item.card.condition.limit"></div>
             </li>
             <li>
               <span>대출금리</span>
-              <div>
-                <p>
-                  {{ item.card.condition.rate[0] }}
-                </p>
-                <span>
-                  {{ item.card.condition.rate[1] }}
-                </span>
-              </div>
+              <div v-html="item.card.condition.rate"></div>
             </li>
             <li>
               <span>대출기간</span>
-              <div>
-                <p>
-                  {{ item.card.condition.term[0] }}
-                </p>
-                <span>
-                  {{ item.card.condition.term[1] }}
-                </span>
-              </div>
+              <div v-html="item.card.condition.term"></div>
             </li>
             <li>
               <span>상환방법</span>
-              <div>
-                <p>
-                  {{ item.card.condition.return }}
-                </p>
-              </div>
+              <div v-html="item.card.condition.return"></div>
             </li>
           </ul>
-          <b-btn variant="white" @click="item.detail = !item.detail"
+          <b-btn
+            class="mt-5"
+            variant="white"
+            @click="item.detail = !item.detail"
             ><span
-              class="text-white py-3 px-5 fw-900 text-20"
+              class="text-white py-3 px-5 fw-900 text-20 d-block buttonOver"
               :style="{ border: '1px solid #fff', borderRadius: '2rem' }"
             >
-              {{ item.title }} 상세 가이드 보기
+              {{ item.title }}
+              <span class="fw-400"
+                >상세 가이드 {{ item.detail ? "닫기" : "보기" }}
+              </span>
               <font-awesome-icon
                 :icon="
                   item.detail ? 'chevron-circle-up' : 'chevron-circle-down'
@@ -124,12 +105,14 @@
             </span>
           </b-btn>
         </b-row>
-        <b-row v-if="item.detail">
-          <template v-if="i == 0"><Detail :one="true" /></template>
-          <template v-if="i == 1"><Detail :two="true" /></template>
-          <template v-if="i == 2"><Detail :three="true" /></template>
-          <template v-if="i == 3"><Detail :four="true" /></template>
-        </b-row>
+        <transition name="fade">
+          <b-row v-if="item.detail" class="pt-5">
+            <template v-if="i == 0"><Detail :one="true" /></template>
+            <template v-if="i == 1"><Detail :two="true" /></template>
+            <template v-if="i == 2"><Detail :three="true" /></template>
+            <template v-if="i == 3"><Detail :four="true" /></template>
+          </b-row>
+        </transition>
       </b-container>
     </section>
     <!-- 상담신청 -->
@@ -186,16 +169,11 @@ export default {
             subTitle:
               "저신용, 저소득 서민을 대상으로 지원해주는 보증부 서민대출",
             condition: {
-              limit: [
-                "최대 2,000만원",
-                "최소 600만원~ 최대 2,000만원(개인신용평점별 차등)",
-              ],
-              rate: [
-                "최저 연8.69% ~ 최고 연10.29%",
-                "개인신용평점별 차등 매월금융감독원 고시금리에 따라 변동/2022.03.01 기준 온라인 햇살론 진행시 1.3%인하(당일송금가능)",
-              ],
-              term: ["3년 또는 5년", "중 택일가능"],
-              return: "원금균등분할상환",
+              limit:
+                "<p>최대 2,000만원</p><span>최소 600만원~ 최대 2,000만원(개인신용평점별 차등)</span>",
+              rate: "<p>최저 연8.69% ~ <br/>최고 연10.29%</p><span>개인신용평점별 차등 매월금융감독원 고시금리에 따라 변동/2022.03.01 기준 온라인 햇살론 진행시 1.3%인하(당일송금가능)</span>",
+              term: "<p>3년 또는 5년</p><span>중 택일가능</span>",
+              return: "<p>원금균등분할상환</p>",
             },
           },
           detail: false,
@@ -216,16 +194,11 @@ export default {
           card: {
             subTitle: "중·저 신용자를 위한 대출",
             condition: {
-              limit: [
-                "최대 3,000만원",
-                "최소 100만원~ 최대 3,000만원(단, 서울보증보험 승인금액 이내)",
-              ],
-              rate: [
-                "최저 연10.5% ~ 최고 연19.49%",
-                "개인신용평점별 차등/기준일: 2022.01.03",
-              ],
-              term: ["1년 ~ 5년", "대출기간은 년 단위로 취급가능"],
-              return: "원금균등분할상환",
+              limit:
+                "<p>최대 3,000만원</p><span>최소 100만원~ 최대 3,000만원(단, 서울보증보험 승인금액 이내)</span>",
+              rate: "<p>최저 연10.5% ~ <br/>최고 연19.49%</p><span>개인신용평점별 차등/기준일: 2022.01.03</span>",
+              term: "<p>1년 ~ 5년</p><span>대출기간은 년 단위로 취급가능<p>",
+              return: "<p>원금균등분할상환</p>",
             },
           },
           detail: false,
@@ -246,13 +219,11 @@ export default {
           card: {
             subTitle: "근로소득자를 위한 대출",
             condition: {
-              limit: ["최대 5,000만원", "최소 300만원~ 최대 5,000만원 이내"],
-              rate: [
-                "최저 연5.9% ~ 최고 연19.49%",
-                "기준금리+가산금리 (개인신용평점 차등, 2022.01.03 기준)",
-              ],
-              term: ["1년 ~ 6년", "대출기간은 년 단위로 취급가능"],
-              return: "원금균등분할상환",
+              limit:
+                "<p>최대 5,000만원</p><span>최소 300만원~ 최대 5,000만원 이내</span>",
+              rate: "<p>최저 연5.9% ~ <br/>최고 연19.49%</p><span>기준금리+가산금리 (개인신용평점 차등, 2022.01.03 기준)</span>",
+              term: "<p>1년 ~ 6년</p><span>대출기간은 년 단위로 취급가능</span>",
+              return: "<p>원금균등분할상환</p>",
             },
           },
           detail: false,
@@ -274,13 +245,11 @@ export default {
           card: {
             subTitle: "근로소득자를 위한 신용대출",
             condition: {
-              limit: ["최대 1억원", "최소 300만원 ~ 최대 1억원 이내"],
-              rate: [
-                "최저 연5.9% ~ 최고 연17.99%",
-                "기준금리+가산금리 (개인신용평점별 차등, 2022.01.03 기준)",
-              ],
-              term: ["1년 ~ 10년", "대출기간은 년 단위로 취급가능"],
-              return: "원금균등분할상환 만기일시상환 중 택일",
+              limit:
+                "<p>최대 1억원</p><span>최소 300만원 ~ 최대 1억원 이내</span>",
+              rate: "<p>최저 연5.9% ~ <br/>최고 연17.99%</p><span>기준금리+가산금리 (개인신용평점별 차등, 2022.01.03 기준)</span>",
+              term: "<p>1년 ~ 10년</p><span>대출기간은 년 단위로 취급가능</span>",
+              return: "<p>원금균등분할상환 <br/>만기일시상환 중 택일</p>",
             },
           },
           detail: false,
@@ -293,31 +262,79 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 .itemStyle {
   display: flex;
   justify-content: space-between;
   text-align: center;
   color: #000;
   li {
-    width: 20%;
-    background: #fff;
-    border-radius: 1rem;
-    padding: 1.5rem;
+    width: 23%;
+    // background: #fff;
+    // border-radius: 1rem;
+    // padding: 1.5rem;
     > span {
       font-weight: 900;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      color: #fff;
     }
     div {
+      box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.2);
+      padding: 0 1.5rem;
+      background: #fff;
+      border-radius: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       height: 100%;
       p {
-        margin: 0;
         font-size: 1.5rem;
         font-weight: 900;
+        margin: 0;
       }
+      span {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+.buttonOver {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.2s ease-in-out;
+  box-shadow: 5px 5px 0;
+  z-index: 1;
+  &:active {
+    position: relative;
+    left: 5px;
+    top: 5px;
+    box-shadow: 0 0 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: -100%;
+    transition: bottom 0.2s ease-in-out;
+    z-index: -1;
+  }
+  &:hover {
+    color: #000 !important;
+    &::after {
+      bottom: 0;
     }
   }
 }

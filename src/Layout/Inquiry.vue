@@ -94,7 +94,7 @@
             <span class="px-2 fw-900 text-18">개인정보취급방침이용동의</span>
             <!-- <b-btn v-b-modal.check1 variant="link" class="decoration-0 p-0 align-top"> -->
             <b-btn
-              v-b-modal.check1
+              v-b-modal="'check1'"
               variant="link"
               class="decoration-0 p-0 align-top"
             >

@@ -9,6 +9,7 @@
       title="개인정보취급방침이용동의"
       ok-only
       ok-title="확인"
+      ok-variant="warning"
       footer-bg-variant="white"
       title-class="fw-900"
       no-close-on-backdrop
@@ -29,6 +30,7 @@
       title="이용동의"
       ok-only
       ok-title="확인"
+      ok-variant="warning"
       footer-bg-variant="white"
       title-class="fw-900"
       no-close-on-backdrop
@@ -48,6 +50,7 @@
       hide-header-close
       ok-only
       ok-title="확인"
+      ok-variant="warning"
       footer-bg-variant="white"
       no-close-on-backdrop
     >
