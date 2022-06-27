@@ -1,67 +1,93 @@
 <template>
-  <header class="hana border-bottom" id="header">
+  <header class="border-bottom hana" id="header">
     <b-container id="top">
       <b-row class="align-items-center justify-content-between">
         <b-col class="col-3">
-          <b-navbar-brand tag="h1" class="m-0 p-0 fw-900 text-30">
-            <img src="@/assets/images/logo.svg" alt="하나캐피탈" width="50" />
-            하나 캐피탈
+          <b-navbar-brand
+            tag="h1"
+            class="m-0 p-0 fw-900 text-25 cursor-pointer d-inline-block hana cm"
+            :style="{ color: '#008486' }"
+            @click="$router.push('/').catch(() => {}), scrollTop()"
+          >
+            <img src="@/assets/images/logo.svg" alt="이도금융" width="40" />
+            이도금융
           </b-navbar-brand>
         </b-col>
-        <!-- 관리자 경로 -->
-        <b-col
-          v-if="$store.getters.isLogin"
-          class="col-8 text-20 text-right p-0"
-        >
-          <template>
-            <b-row class="align-items-center justify-content-between">
+        <b-col class="col-8 text-24 text-right p-0">
+          <b-row class="align-items-center justify-content-between">
+            <!-- 관리자 헤더 -->
+            <template v-if="path.includes('/admin')">
+              <!-- 로그인 상태 -->
+              <template v-if="$store.getters.isLogin">
+                <b-col>
+                  <b-nav class="justify-content-center">
+                    <b-nav-item
+                      to="/admin/inquiryList"
+                      :class="
+                        path.includes('/admin/inquiryList') ? 'active' : ''
+                      "
+                      >상담신청 관리</b-nav-item
+                    >
+                    <b-nav-item
+                      to="/admin/userList"
+                      v-if="$store.getters.isSuper"
+                      :class="path.includes('/admin/user') ? 'active' : ''"
+                      >계정 관리</b-nav-item
+                    >
+                    <b-nav-item
+                      to="/admin/myAccount"
+                      :class="path.includes('/admin/myAccount') ? 'active' : ''"
+                      >내 정보수정</b-nav-item
+                    >
+                  </b-nav>
+                </b-col>
+                <b-col>
+                  <span class="mx-2 text-17">
+                    {{ $store.state.name }}({{ $store.state.serviceId }}) 님
+                  </span>
+                  <b-btn
+                    @click="logout()"
+                    pill
+                    class="decoration-0"
+                    variant="dark"
+                  >
+                    <span> 로그아웃 </span>
+                  </b-btn>
+                </b-col>
+              </template>
+              <!-- 로그아웃 상태 -->
+              <template v-else>
+                <b-col>
+                  <span class="text-22"> 관리자 전용 페이지 </span></b-col
+                >
+              </template>
+            </template>
+            <!-- 기본 헤더 -->
+            <template v-else>
               <b-col>
                 <b-nav class="justify-content-center">
                   <b-nav-item
-                    to="/admin/inquiryList"
-                    :class="path.includes('/admin/inquiryList') ? 'active' : ''"
-                    >상담신청 관리</b-nav-item
+                    @click="scrollTop()"
+                    to="/loanType"
+                    :class="path.includes('/loanType') ? 'active' : ''"
                   >
-                  <b-nav-item
-                    to="/admin/userList"
-                    v-if="$store.getters.isSuper"
-                    :class="path.includes('/admin/user') ? 'active' : ''"
-                    >계정 관리</b-nav-item
-                  >
-                  <b-nav-item
-                    to="/admin/myAccount"
-                    :class="path.includes('/admin/myAccount') ? 'active' : ''"
-                    >내 정보수정</b-nav-item
-                  >
+                    대출상품
+                  </b-nav-item>
+                  <b-nav-item @click="scrollTop()" to="/">
+                    접수하기
+                  </b-nav-item>
                 </b-nav>
               </b-col>
               <b-col>
-                <span class="mx-2">
-                  <font-awesome-icon icon="user" class="fa-xs" />
-                  <!-- ID:  -->
-                  {{ $store.state.name }}
-                  ({{ $store.state.serviceId }})님
-                </span>
-                <b-btn
-                  @click="logout()"
-                  pill
-                  class="logout-btn decoration-0"
-                  variant="link"
+                <span class="me-2 text-22 hana l">상담전화</span>
+                <a
+                  href="tel:1600-1481"
+                  class="mainColor hana b text-30 align-middle"
+                  >1600-1481</a
                 >
-                  <span> 로그아웃 </span>
-                </b-btn>
               </b-col>
-            </b-row>
-          </template>
-        </b-col>
-        <!-- 기본 경로 -->
-        <b-col v-else class="col-3 text-20 text-right p-0">
-          <span class="fw-900">
-            <!-- <font-awesome-icon icon="headset" /> -->
-            상담전화
-          </span>
-          <span class="mx-2">|</span>
-          <a href="tel:02-1234-1234" class="fw-900"> 02-1234-1234 </a>
+            </template>
+          </b-row>
         </b-col>
       </b-row>
     </b-container>
@@ -85,6 +111,9 @@ export default {
     logout() {
       this.$store.dispatch("logout");
     },
+    scrollTop() {
+      window.scrollTo(0, 0);
+    },
   },
 };
 </script>
@@ -94,17 +123,6 @@ export default {
   &.active {
     color: #000;
     font-weight: 900;
-    &::after {
-      content: "";
-      width: 80%;
-      height: 2px;
-      display: block;
-      background: #000;
-      position: relative;
-      left: 50%;
-      top: -5px;
-      transform: translateX(-50%);
-    }
   }
   .nav-link {
     color: #000;

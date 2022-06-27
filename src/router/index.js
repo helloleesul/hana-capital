@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 
 import User from "@/views/User.vue";
 import Admin from "@/views/Admin.vue";
-import Test from "@/views/Test.vue";
 
 import ErrorPage from "@/components/ErrorPage.vue";
 
@@ -19,6 +18,11 @@ const routes = [
         path: "/",
         name: "Home",
         component: () => import("../components/Home.vue"),
+      },
+      {
+        path: "loanType",
+        name: "LoanType",
+        component: () => import("../components/LoanType.vue"),
       },
     ],
   },
@@ -75,11 +79,6 @@ const routes = [
         component: ErrorPage,
       },
     ],
-  },
-  // TEST PAGE
-  {
-    path: "/test",
-    component: Test,
   },
 ];
 

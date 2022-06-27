@@ -1,5 +1,5 @@
 <template>
-  <b-nav
+  <!-- <b-nav
     class="position-fixed"
     :style="{
       bottom: '3rem',
@@ -39,12 +39,20 @@
       <font-awesome-icon icon="angle-up" />
       <span class="d-block">TOP</span>
     </a>
-  </b-nav>
+  </b-nav> -->
+  <b-btn class="scrollTop-btn" @click="scrollTop()" variant="link">
+    <font-awesome-icon icon="angles-up" class="fa-2x" />
+  </b-btn>
 </template>
 
 <script>
 export default {
   name: "GoButton",
+  methods: {
+    scrollTop() {
+      window.scrollTo(0, 0);
+    },
+  },
 };
 </script>
 
