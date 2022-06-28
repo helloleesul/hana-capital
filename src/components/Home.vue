@@ -1,13 +1,114 @@
 <template>
   <main>
-    <!-- 편안아파트론 상품안내 -->
+    <!-- 편한아파트론 메인-->
+    <section
+      class="text-black border-bottom py-3"
+      :style="{
+        background: `url(${require('@/assets/images/visual_bg.jpg')}) no-repeat center /cover`,
+      }"
+    >
+      <b-container class="py-5">
+        <h2 class="hana b text-30 text-center pb-3 mainColor">편한아파트론</h2>
+        <p class="text-50 text-center gothic lh-sm">
+          쉽다! 빠르다! 아파트소유자 신용대출 <br />
+          <span :style="{ color: bgGradient[5] }">저당 설정없이 </span>
+          <span :style="{ color: bgGradient[2] }">넉넉한 한도!</span>
+        </p>
+        <b-row class="text-center align-items-end my-5 pt-3">
+          <b-col class="border-end">
+            <img
+              :src="require('@/assets/images/img_rate.png')"
+              alt="최저금리"
+              class="mb-5"
+            />
+            <p class="text-40 gothic r m-0 lh-sm">
+              <span
+                class="text-20 d-block gothic"
+                :style="{ color: bgGradient[5] }"
+              >
+                최저금리
+              </span>
+              연 <span class="gothic">7.9%</span>
+            </p>
+          </b-col>
+          <b-col class="border-end">
+            <img
+              :src="require('@/assets/images/img_limit.png')"
+              alt="최대한도"
+              class="mb-5"
+            />
+            <p class="text-40 gothic r m-0 lh-sm">
+              <span
+                class="text-20 d-block gothic"
+                :style="{ color: bgGradient[5] }"
+              >
+                최대한도
+              </span>
+              <span class="gothic">1억 5,000</span>만원
+            </p>
+          </b-col>
+          <b-col>
+            <img
+              :src="require('@/assets/images/img_repay.png')"
+              alt="상환기간"
+              class="mb-5"
+            />
+            <p class="text-40 gothic r m-0 lh-sm">
+              <span
+                class="text-20 d-block gothic"
+                :style="{ color: bgGradient[5] }"
+              >
+                상환기간
+              </span>
+              최대<span class="gothic">160</span>개월
+            </p>
+          </b-col>
+        </b-row>
+        <b-row :style="{ gap: '1rem' }">
+          <b-col
+            :style="{
+              background: `url(${require('@/assets/images/btn_bg_gr.png')}) no-repeat center /cover !important`,
+            }"
+            class="shadow p-3"
+          >
+            <b-btn
+              class="w-100 text-30 text-decoration-none text-white gothic"
+              variant="link"
+            >
+              <img
+                :src="require('@/assets/images/ico_headset.png')"
+                alt="상담"
+              />
+              전화상담 신청하기</b-btn
+            >
+          </b-col>
+          <b-col
+            :style="{
+              background: `url(${require('@/assets/images/btn_bg_rd.png')}) no-repeat center /cover !important`,
+            }"
+            class="shadow p-3"
+          >
+            <b-btn
+              class="w-100 text-30 text-decoration-none text-white gothic"
+              variant="link"
+              ><img
+                :src="require('@/assets/images/ico_graph.png')"
+                alt="그래프"
+              />
+              간편 한도조회</b-btn
+            >
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+    <!-- 편한아파트론 상품안내 -->
     <section
       class="text-black border-bottom py-3"
       :style="{ background: bgGradient[0] }"
     >
       <b-container class="py-5">
         <h2 class="hana b text-25 text-center pb-3">
-          <span class="mainColor">편안아파트론</span> 상품안내
+          <span class="mainColor">편한아파트론</span> 상품안내
         </h2>
         <b-row :style="{ gap: '1rem', marginTop: '1rem' }">
           <b-col
@@ -88,11 +189,11 @@
         </b-row>
       </b-container>
     </section>
-    <!-- 편안아파트론 이용방법 -->
+    <!-- 편한아파트론 이용방법 -->
     <section class="text-black bg-light border-bottom py-3">
       <b-container class="py-5">
         <h2 class="hana b text-25 text-center pb-3">
-          <span class="mainColor">편안아파트론</span> 이용방법
+          <span class="mainColor">편한아파트론</span> 이용방법
         </h2>
         <b-row class="text-center mt-3" :style="{ gap: '1rem' }">
           <b-col class="shadow">
@@ -155,14 +256,14 @@
         </b-row>
       </b-container>
     </section>
-    <!-- 편안아파트론 Q&A -->
+    <!-- 편한아파트론 Q&A -->
     <section class="text-black border-bottom py-3">
       <b-container class="py-5">
         <h2 class="hana b text-25 text-center pb-3">
-          <span class="mainColor">편안아파트론</span> Q&A
+          <span class="mainColor">편한아파트론</span> Q&A
         </h2>
         <b-row
-          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4"
+          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4 shadow-sm"
         >
           <b-col>
             <b-row class="align-items-center">
@@ -191,7 +292,7 @@
               </b-col>
               <b-col cols="11">
                 <p class="fw-600 d-inline m-0">
-                  편안아파트론은 저당설정없는 신용대출 상품으로 등기부 기재가
+                  편한아파트론은 저당설정없는 신용대출 상품으로 등기부 기재가
                   없습니다. 그러므로 등기부등본에 기록이 남지 않아서 추후 매매
                   임대시 영향이 전혀 없습니다.
                 </p>
@@ -200,7 +301,7 @@
           </b-col>
         </b-row>
         <b-row
-          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4"
+          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4 shadow-sm"
         >
           <b-col>
             <b-row class="align-items-center">
@@ -235,7 +336,7 @@
           </b-col>
         </b-row>
         <b-row
-          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4"
+          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4 shadow-sm"
         >
           <b-col>
             <b-row class="align-items-center">
@@ -271,7 +372,7 @@
           </b-col>
         </b-row>
         <b-row
-          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4"
+          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4 shadow-sm"
         >
           <b-col>
             <b-row class="align-items-center">
@@ -307,7 +408,7 @@
           </b-col>
         </b-row>
         <b-row
-          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4"
+          class="border rounded py-4 px-5 text-20 align-items-center text-secondary mt-4 shadow-sm"
         >
           <b-col>
             <b-row class="align-items-center">

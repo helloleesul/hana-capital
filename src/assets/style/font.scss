@@ -1,23 +1,37 @@
 @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css");
 @font-face {
-  font-family: 'HanaB';
-  src: url('../font/HanaB.ttf') format('opentype');
+  font-family: "HanaB";
+  src: url("../font/HanaB.ttf") format("opentype");
 }
 @font-face {
-  font-family: 'HanaCM';
-  src: url('../font/HanaCM.ttf') format('opentype');
+  font-family: "HanaCM";
+  src: url("../font/HanaCM.ttf") format("opentype");
 }
 @font-face {
-  font-family: 'HanaL';
-  src: url('../font/HanaL.ttf') format('opentype');
+  font-family: "HanaL";
+  src: url("../font/HanaL.ttf") format("opentype");
 }
 @font-face {
-  font-family: 'HanaM';
-  src: url('../font/HanaM.ttf') format('opentype');
+  font-family: "HanaM";
+  src: url("../font/HanaM.ttf") format("opentype");
 }
 @font-face {
-  font-family: 'HanaUL';
-  src: url('../font/HanaUL.ttf') format('opentype');
+  font-family: "HanaUL";
+  src: url("../font/HanaUL.ttf") format("opentype");
+}
+@font-face {
+  font-family: "ONE-Mobile-Title";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Title.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ONE-Mobile-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @use "sass:math";
@@ -52,7 +66,9 @@ a {
   color: inherit;
 }
 
-ul, li, ol {
+ul,
+li,
+ol {
   list-style: none;
 }
 

@@ -318,6 +318,13 @@ li.page-item.disabled {
   }
 }
 
+.gothic {
+  font-family: "ONE-Mobile-Title" !important;
+  &.r {
+    font-family: "ONE-Mobile-Regular" !important;
+  }
+}
+
 .yellow {
   background: #009591;
 }
