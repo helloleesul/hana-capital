@@ -2,7 +2,7 @@
   <aside>
     <!-- 개인정보취급방침이용동의 -->
     <b-modal
-      id="check1"
+      id="check-1"
       scrollable
       centered
       hide-header-close
@@ -23,7 +23,7 @@
 
     <!-- 이용동의 -->
     <b-modal
-      id="check2"
+      id="check-2"
       scrollable
       centered
       hide-header-close
@@ -41,35 +41,12 @@
         consectetur ac, vestibulum at eros.
       </p>
     </b-modal>
-
-    <!-- 대출상품 -->
-    <b-modal
-      id="loanItem"
-      scrollable
-      centered
-      hide-header-close
-      ok-only
-      ok-title="확인"
-      ok-variant="warning"
-      footer-bg-variant="white"
-      no-close-on-backdrop
-    >
-      <template #modal-header>
-        <h5 class="fw-900">{{ loanItem.name }}</h5>
-      </template>
-      <template #default>
-        <h5>{{ loanItem.name }}</h5>
-      </template>
-    </b-modal>
   </aside>
 </template>
 
 <script>
 export default {
   name: "Modal",
-  props: {
-    loanItem: null,
-  },
 };
 </script>
 

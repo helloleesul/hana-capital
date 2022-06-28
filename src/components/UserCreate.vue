@@ -53,7 +53,7 @@
                 <!-- <b-btn @click="serviceIdCheck()" pill :style="{background:'#FDDA00',border:'3px solid #000', position:'absolute',right:0,top:0}"> -->
                 <b-btn
                   @click="serviceIdCheck()"
-                  class="p-0 decoration-0 yellow-underline"
+                  class="p-0 text-decoration-none yellow-underline"
                   pill
                   variant="link"
                   :style="{

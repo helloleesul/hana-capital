@@ -5,7 +5,7 @@
         <b-col class="col-3">
           <b-navbar-brand
             tag="h1"
-            class="m-0 p-0 fw-900 text-25 cursor-pointer d-inline-block hana cm"
+            class="m-0 p-0 fw-900 text-25 cursor-pointer d-inline-block hana l"
             :style="{ color: '#008486' }"
             @click="$router.push('/').catch(() => {}), scrollTop()"
           >
@@ -19,7 +19,7 @@
             <template v-if="path.includes('/admin')">
               <!-- 로그인 상태 -->
               <template v-if="$store.getters.isLogin">
-                <b-col>
+                <b-col class="gothic text-22">
                   <b-nav class="justify-content-center">
                     <b-nav-item
                       to="/admin/inquiryList"
@@ -42,29 +42,29 @@
                   </b-nav>
                 </b-col>
                 <b-col>
-                  <span class="mx-2 text-17">
+                  <span class="mx-2 gothic text-18">
                     {{ $store.state.name }}({{ $store.state.serviceId }}) 님
                   </span>
                   <b-btn
                     @click="logout()"
                     pill
-                    class="decoration-0"
+                    class="text-decoration-none"
                     variant="dark"
                   >
-                    <span> 로그아웃 </span>
+                    <span class="gothic"> 로그아웃 </span>
                   </b-btn>
                 </b-col>
               </template>
               <!-- 로그아웃 상태 -->
               <template v-else>
-                <b-col>
-                  <span class="text-22"> 관리자 전용 페이지 </span></b-col
+                <b-col class="gothic">
+                  <span class="text-20"> 관리자 전용 페이지 </span></b-col
                 >
               </template>
             </template>
             <!-- 기본 헤더 -->
             <template v-else>
-              <b-col>
+              <b-col class="gothic">
                 <b-nav class="justify-content-center">
                   <b-nav-item
                     @click="scrollTop()"
@@ -73,16 +73,18 @@
                   >
                     대출상품
                   </b-nav-item>
-                  <b-nav-item @click="scrollTop()" to="/">
-                    접수하기
+                  <b-nav-item
+                    @click="scrollTop()"
+                    to="/inquiry"
+                    :class="path.includes('/inquiry') ? 'active' : ''"
+                  >
+                    상담접수
                   </b-nav-item>
                 </b-nav>
               </b-col>
-              <b-col>
-                <span class="me-2 text-22 hana l">상담전화</span>
-                <a
-                  href="tel:1600-1481"
-                  class="mainColor hana b text-30 align-middle"
+              <b-col class="gothic">
+                <span class="me-2 text-22 gothic r">상담전화</span>
+                <a href="tel:1600-1481" class="mainColor text-30 align-middle"
                   >1600-1481</a
                 >
               </b-col>

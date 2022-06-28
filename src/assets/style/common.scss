@@ -187,6 +187,7 @@ $subColor: #ed1550;
     // left: 0;
     // top: 50%;
     // transform: translateY(-50%);
+    min-height: 75vh;
     .container {
       padding: 4rem 0;
     }
@@ -206,7 +207,6 @@ $subColor: #ed1550;
   z-index: 100;
   color: #000;
   line-height: 1;
-  min-width: 1536px;
   .row {
     height: 100px;
   }
@@ -270,7 +270,6 @@ $subColor: #ed1550;
   position: fixed;
   right: 3rem;
   bottom: 3rem;
-  z-index: 1;
   color: #fff;
   text-decoration: none;
   &::before {

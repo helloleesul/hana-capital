@@ -69,10 +69,10 @@
             :style="{
               background: `url(${require('@/assets/images/btn_bg_gr.png')}) no-repeat center /cover !important`,
             }"
-            class="shadow p-3"
+            class="shadow"
           >
             <b-btn
-              class="w-100 text-30 text-decoration-none text-white gothic"
+              class="w-100 text-30 text-decoration-none text-white gothic p-4"
               variant="link"
             >
               <img
@@ -86,10 +86,10 @@
             :style="{
               background: `url(${require('@/assets/images/btn_bg_rd.png')}) no-repeat center /cover !important`,
             }"
-            class="shadow p-3"
+            class="shadow"
           >
             <b-btn
-              class="w-100 text-30 text-decoration-none text-white gothic"
+              class="w-100 text-30 text-decoration-none text-white gothic p-4"
               variant="link"
               ><img
                 :src="require('@/assets/images/ico_graph.png')"
@@ -446,16 +446,12 @@
         </b-row>
       </b-container>
     </section>
-    <GoButton />
   </main>
 </template>
 
 <script>
-import GoButton from "../Layout/GoButton.vue";
-
 export default {
   name: "Home",
-  components: { GoButton },
   data() {
     return {
       bgGradient: [

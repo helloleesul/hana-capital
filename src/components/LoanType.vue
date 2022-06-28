@@ -1,5 +1,6 @@
 <template>
   <main>
+    <!-- 상품 메인 슬라이드 -->
     <section class="main-slide">
       <b-container>
         <carousel
@@ -19,9 +20,8 @@
               class="d-block w-100 h-100"
               :href="`#${item.name}`"
               v-smooth-scroll="{ duration: 200, offset: 0 }"
-              :style="{ background: item.color }"
             >
-              <b-row class="h-100">
+              <b-row class="h-100" :style="{ background: item.color }">
                 <b-col
                   class="col-6 d-flex justify-content-center align-items-center text-white"
                   :style="{ flexDirection: 'column' }"
@@ -51,104 +51,93 @@
         </carousel>
       </b-container>
     </section>
-    <section
-      class="border-top"
-      v-for="(item, i) in items"
-      :id="item.name"
-      :key="item.name"
-    >
-      <b-container>
-        <b-row
-          class="text-white"
-          :style="{
-            background: item.color,
-            padding: '4rem',
-          }"
-        >
-          <h2 class="text-50 fw-900">{{ item.title }}</h2>
-          <span class="text-30">{{ item.card.subTitle }}</span>
-          <ul class="itemStyle my-5">
-            <li>
-              <span>대출한도</span>
-              <div v-html="item.card.condition.limit"></div>
-            </li>
-            <li>
-              <span>대출금리</span>
-              <div v-html="item.card.condition.rate"></div>
-            </li>
-            <li>
-              <span>대출기간</span>
-              <div v-html="item.card.condition.term"></div>
-            </li>
-            <li>
-              <span>상환방법</span>
-              <div v-html="item.card.condition.return"></div>
-            </li>
-          </ul>
-          <b-btn
-            class="mt-5"
-            variant="white"
-            @click="item.detail = !item.detail"
-            ><span
-              class="text-white py-3 px-5 fw-900 text-20 d-block buttonOver"
-              :style="{ border: '1px solid #fff', borderRadius: '2rem' }"
-            >
-              {{ item.title }}
-              <span class="fw-400"
-                >상세 가이드 {{ item.detail ? "닫기" : "보기" }}
-              </span>
-              <font-awesome-icon
-                :icon="
-                  item.detail ? 'chevron-circle-up' : 'chevron-circle-down'
-                "
-              />
-            </span>
-          </b-btn>
-        </b-row>
-        <transition name="fade">
-          <b-row v-if="item.detail" class="pt-5">
-            <template v-if="i == 0"><Detail :one="true" /></template>
-            <template v-if="i == 1"><Detail :two="true" /></template>
-            <template v-if="i == 2"><Detail :three="true" /></template>
-            <template v-if="i == 3"><Detail :four="true" /></template>
-          </b-row>
-        </transition>
-      </b-container>
-    </section>
     <!-- 상담신청 -->
-    <section
-      id="inquiry"
-      class="w-100"
-      :style="{
-        background: 'linear-gradient(to top,  #252830 50%, transparent 50%)',
-      }"
-    >
-      <b-container
-        class="p-0 bg-black text-white py-5 w-50"
-        :style="{ borderRadius: '1.5rem' }"
-      >
+    <section id="inquiry" class="py-5">
+      <b-container>
         <b-row class="text-center mb-5">
           <h2 class="fw-900">
-            <span class="border-bottom">간편상담 신청하기</span>
+            <span>간편상담 신청하기</span>
           </h2>
         </b-row>
-        <b-row class="m-auto w-50">
-          <Inquiry />
-        </b-row>
+        <InquiryItem />
       </b-container>
     </section>
-    <GoButton />
+    <!-- 상품별 안내 -->
+    <article v-for="(item, i) in items" :id="item.name" :key="item.name">
+      <!-- 간편설명 -->
+      <section
+        :style="{
+          background: item.color,
+        }"
+      >
+        <b-container>
+          <b-row class="text-white">
+            <h2 class="text-50 fw-900">{{ item.title }}</h2>
+            <span class="text-30">{{ item.card.subTitle }}</span>
+            <ul class="itemStyle my-5">
+              <li>
+                <span>대출한도</span>
+                <div v-html="item.card.condition.limit"></div>
+              </li>
+              <li>
+                <span>대출금리</span>
+                <div v-html="item.card.condition.rate"></div>
+              </li>
+              <li>
+                <span>대출기간</span>
+                <div v-html="item.card.condition.term"></div>
+              </li>
+              <li>
+                <span>상환방법</span>
+                <div v-html="item.card.condition.return"></div>
+              </li>
+            </ul>
+            <b-btn
+              class="mt-5"
+              variant="white"
+              @click="item.detail = !item.detail"
+              ><span
+                class="text-white py-3 px-5 fw-900 text-20 d-block buttonOver"
+                :style="{ border: '1px solid #fff', borderRadius: '2rem' }"
+              >
+                {{ item.title }}
+                <span class="fw-400"
+                  >상세 가이드 {{ item.detail ? "닫기" : "보기" }}
+                </span>
+                <font-awesome-icon
+                  :icon="
+                    item.detail ? 'chevron-circle-up' : 'chevron-circle-down'
+                  "
+                />
+              </span>
+            </b-btn>
+          </b-row>
+        </b-container>
+      </section>
+      <!-- 상세설명 -->
+      <section>
+        <b-container>
+          <transition name="fade">
+            <b-row v-if="item.detail" class="pt-5">
+              <template v-if="i == 0"><Detail :one="true" /></template>
+              <template v-if="i == 1"><Detail :two="true" /></template>
+              <template v-if="i == 2"><Detail :three="true" /></template>
+              <template v-if="i == 3"><Detail :four="true" /></template>
+            </b-row>
+          </transition>
+        </b-container>
+      </section>
+    </article>
   </main>
 </template>
 
 <script>
-import GoButton from "../Layout/GoButton.vue";
-import Inquiry from "../Layout/Inquiry.vue";
+import InquiryItem from "./InquiryItem.vue";
 import Detail from "./Detail.vue";
 
 export default {
   name: "Home",
-  components: { GoButton, Inquiry, Detail },
+  components: { InquiryItem, Detail },
   data() {
     return {
       items: [
