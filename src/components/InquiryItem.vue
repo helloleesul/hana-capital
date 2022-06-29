@@ -121,7 +121,10 @@
             type="submit"
             class="w-100 text-30 text-decoration-none text-white gothic p-4"
             variant="link"
-          >
+            ><img
+              :src="require('@/assets/images/ico_headset.png')"
+              alt="상담"
+            />
             간편상담 신청하기</b-btn
           >
         </b-row>

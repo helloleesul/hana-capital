@@ -32,6 +32,9 @@ import InquiryItem from "../components/InquiryItem.vue";
 export default {
   name: "Inquiry",
   components: { InquiryItem },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

@@ -124,55 +124,55 @@ $subColor: #ed1550;
 .main-slide {
   .VueCarousel {
     // border-radius: 1rem;
-    overflow: hidden;
+    // overflow: hidden;
     .VueCarousel-slide {
-      height: 45rem;
+      // height: 45rem;
     }
     .VueCarousel-pagination--bottom-overlay {
-      bottom: 1rem !important;
+      // bottom: 1rem !important;
       .VueCarousel-dot-container {
-        display: flex !important;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 0 !important;
+        // display: flex !important;
+        // justify-content: center;
+        // gap: 1rem;
+        // margin-top: 0 !important;
         .VueCarousel-dot {
-          font-size: 20px;
-          height: 3rem !important;
-          border-radius: 0 !important;
-          background-color: transparent !important;
-          border: 1px solid #fff !important;
-          padding: 0 !important;
-          color: #fff;
-          margin: 0 !important;
-          outline: none !important;
-          font-weight: 900;
+          outline: none;
+          // font-size: 20px;
+          // height: 3rem !important;
+          // border-radius: 0 !important;
+          // border: 1px solid #fff !important;
+          // padding: 0 !important;
+          // margin: 0 !important;
+          // outline: none !important;
+          // font-weight: 900;
           &.VueCarousel-dot--active {
-            background-color: #fff !important;
-            &:nth-child(1)::before {
-              color: #ff9c01;
-            }
-            &:nth-child(2)::before {
-              color: #0a6e01;
-            }
-            &:nth-child(3)::before {
-              color: #31c9ee;
-            }
-            &:nth-child(4)::before {
-              color: #43b546;
-            }
+            // background-color: #fff !important;
+            // color: black;
+            // &:nth-child(1)::before {
+            //   color: #ff9c01;
+            // }
+            // &:nth-child(2)::before {
+            //   color: #0a6e01;
+            // }
+            // &:nth-child(3)::before {
+            //   color: #31c9ee;
+            // }
+            // &:nth-child(4)::before {
+            //   color: #43b546;
+            // }
           }
-          &:nth-child(1)::before {
-            content: "햇살론";
-          }
-          &:nth-child(2)::before {
-            content: "사잇돌2";
-          }
-          &:nth-child(3)::before {
-            content: "하나드림론";
-          }
-          &:nth-child(4)::before {
-            content: "하나슈퍼드림론";
-          }
+          // &:nth-child(1)::before {
+          //   content: "햇살론";
+          // }
+          // &:nth-child(2)::before {
+          //   content: "사잇돌2";
+          // }
+          // &:nth-child(3)::before {
+          //   content: "하나드림론";
+          // }
+          // &:nth-child(4)::before {
+          //   content: "하나슈퍼드림론";
+          // }
         }
       }
     }

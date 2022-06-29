@@ -2,120 +2,173 @@
   <main>
     <!-- 상품 메인 슬라이드 -->
     <section class="main-slide">
-      <b-container>
-        <carousel
-          :per-page="1"
-          :speed="1000"
-          :autoplayTimeout="4500"
-          autoplay
-          loop
-          centerMode
-          :paginationSize="150"
-          paginationPosition="bottom-overlay"
-          :touchDrag="false"
-          :mouseDrag="false"
+      <carousel
+        :per-page="1"
+        :speed="1000"
+        :autoplayTimeout="4500"
+        autoplay
+        loop
+        centerMode
+        :paginationSize="15"
+        paginationPosition="bottom-overlay"
+        paginationActiveColor="#009591"
+        paginationColor="rgba(0,0,0,.5)"
+        :paginationPadding="15"
+      >
+        <slide
+          v-for="item in items"
+          :key="item.name"
+          :style="{
+            background: `url(${require('@/assets/images/item_00' +
+              item.name.charAt(item.name.length - 1) +
+              '.png')}) no-repeat center /cover`,
+          }"
+          class="py-5"
         >
-          <slide v-for="item in items" :key="item.id">
-            <a
-              class="d-block w-100 h-100"
-              :href="`#${item.name}`"
-              v-smooth-scroll="{ duration: 200, offset: 0 }"
-            >
-              <b-row class="h-100" :style="{ background: item.color }">
-                <b-col
-                  class="col-6 d-flex justify-content-center align-items-center text-white"
-                  :style="{ flexDirection: 'column' }"
-                >
-                  <div>
-                    <p class="text-30 mb-1">{{ item.slide.subTitle }}</p>
-                    <h3 class="text-65 fw-900">{{ item.title }}</h3>
-                    <span
-                      class="text-30 fw-900 py-2 px-4 my-4 d-inline-block"
-                      :style="{ border: '1px solid', borderRadius: '2rem' }"
-                      >{{ item.slide.pill }}</span
-                    >
-                    <ul>
-                      <li
-                        v-for="list in item.slide.description"
-                        :key="list.id"
-                        class="text-24 fw-700"
-                      >
-                        {{ list }}
-                      </li>
-                    </ul>
-                  </div>
-                </b-col>
-              </b-row>
-            </a></slide
-          >
-        </carousel>
-      </b-container>
+          <b-container class="py-5 gothic">
+            <div class="py-5">
+              <p class="text-30 mb-1 mainColor">{{ item.subTitle }}</p>
+              <h3 class="text-65 mb-3">{{ item.title }}</h3>
+              <p class="text-30 mb-5">{{ item.description }}</p>
+              <b-btn variant="link" class="p-0 text-decoration-none d-block">
+                <a
+                  class="mainBg2 text-30 text-decoration-none text-white px-5 py-2"
+                  :href="`#${item.name}`"
+                  v-smooth-scroll="{ duration: 200, offset: 0 }"
+                  >상세안내 보러가기
+                  <font-awesome-icon icon="fa-solid fa-caret-down"
+                /></a>
+              </b-btn>
+            </div>
+          </b-container>
+        </slide>
+      </carousel>
     </section>
     <!-- 상담신청 -->
-    <section id="inquiry" class="py-5">
-      <b-container>
-        <b-row class="text-center mb-5">
-          <h2 class="fw-900">
-            <span>간편상담 신청하기</span>
+    <section
+      id="inquiry"
+      class="text-black py-3"
+      :style="{
+        background: `url(${require('@/assets/images/visual_bg.jpg')}) no-repeat center /cover`,
+      }"
+    >
+      <b-container class="py-5">
+        <div class="pb-5">
+          <h2 class="gothic text-50 text-center pb-3 mainColor">
+            대출상담 신청
           </h2>
-        </b-row>
+          <p class="text-40 text-center gothic">
+            <!-- 연락처를 남겨주시면 전문상담원이 연락드립니다. -->
+            <span class="text-20 opacity-50 d-block">
+              <font-awesome-icon icon="fa-solid fa-asterisk" /> 상담만으로는
+              신용조회 기록이 절대 남지 않습니다.
+            </span>
+          </p>
+        </div>
         <InquiryItem />
       </b-container>
     </section>
+    <b-container>
+      <!-- <b-row class="text-center mb-5">
+          <h2 class="fw-900">
+            <span>간편상담 신청하기</span>
+          </h2>
+        </b-row> -->
+    </b-container>
     <!-- 상품별 안내 -->
     <article v-for="(item, i) in items" :id="item.name" :key="item.name">
       <!-- 간편설명 -->
-      <section
-        :style="{
-          background: item.color,
-        }"
-      >
+      <section class="border-top py-5">
         <b-container>
-          <b-row class="text-white">
-            <h2 class="text-50 fw-900">{{ item.title }}</h2>
-            <span class="text-30">{{ item.card.subTitle }}</span>
-            <ul class="itemStyle my-5">
-              <li>
-                <span>대출한도</span>
-                <div v-html="item.card.condition.limit"></div>
-              </li>
-              <li>
-                <span>대출금리</span>
-                <div v-html="item.card.condition.rate"></div>
-              </li>
-              <li>
-                <span>대출기간</span>
-                <div v-html="item.card.condition.term"></div>
-              </li>
-              <li>
-                <span>상환방법</span>
-                <div v-html="item.card.condition.return"></div>
-              </li>
-            </ul>
-            <b-btn
-              class="mt-5"
-              variant="white"
-              @click="item.detail = !item.detail"
-              ><span
-                class="text-white py-3 px-5 fw-900 text-20 d-block buttonOver"
-                :style="{ border: '1px solid #fff', borderRadius: '2rem' }"
+          <h2 class="text-50 fw-900">{{ item.title }}</h2>
+          <span class="text-30">{{ item.description }}</span>
+          <b-row class="text-center align-items-end my-5 pt-3">
+            <b-col class="border-end">
+              <img
+                :src="require('@/assets/images/img_rate.png')"
+                alt="최저금리"
+                class="mb-5"
+              />
+              <span
+                class="text-20 d-block gothic"
+                :style="{ color: bgGradient[5] }"
               >
-                {{ item.title }}
-                <span class="fw-400"
-                  >상세 가이드 {{ item.detail ? "닫기" : "보기" }}
-                </span>
+                최저금리
+              </span>
+              <p class="text-40 gothic r m-0 lh-sm" v-html="item.rate"></p>
+            </b-col>
+            <b-col class="border-end">
+              <img
+                :src="require('@/assets/images/img_limit.png')"
+                alt="최대한도"
+                class="mb-5"
+              />
+              <span
+                class="text-20 d-block gothic"
+                :style="{ color: bgGradient[5] }"
+              >
+                최대한도
+              </span>
+              <p class="text-40 gothic r m-0 lh-sm" v-html="item.limit"></p>
+            </b-col>
+            <b-col>
+              <img
+                :src="require('@/assets/images/img_repay.png')"
+                alt="상환기간"
+                class="mb-5"
+              />
+              <span
+                class="text-20 d-block gothic"
+                :style="{ color: bgGradient[5] }"
+              >
+                상환기간
+              </span>
+              <p class="text-40 gothic r m-0 lh-sm" v-html="item.term"></p>
+            </b-col>
+          </b-row>
+          <b-row :style="{ gap: '1rem' }">
+            <b-col
+              :style="{
+                background: `url(${require('@/assets/images/btn_bg_rd.png')}) no-repeat center /cover !important`,
+              }"
+              class="shadow"
+            >
+              <b-btn
+                class="w-100 text-30 text-decoration-none text-white gothic p-4"
+                variant="link"
+                to="/inquiry"
+              >
+                <img
+                  :src="require('@/assets/images/ico_headset.png')"
+                  alt="상담"
+                />
+                간편상담 신청하기</b-btn
+              >
+            </b-col>
+            <b-col
+              :style="{
+                background: `url(${require('@/assets/images/btn_bg_gr.png')}) no-repeat center /cover !important`,
+              }"
+              class="shadow"
+            >
+              <b-btn
+                class="w-100 text-30 text-decoration-none text-white gothic p-4"
+                variant="link"
+                @click="item.detail = !item.detail"
+              >
+                상세안내 {{ item.detail ? "닫기" : "보기" }}
                 <font-awesome-icon
                   :icon="
                     item.detail ? 'chevron-circle-up' : 'chevron-circle-down'
                   "
-                />
-              </span>
-            </b-btn>
+              /></b-btn>
+            </b-col>
           </b-row>
         </b-container>
       </section>
       <!-- 상세설명 -->
-      <section>
+
+      <section :style="{ background: bgGradient[0] }">
         <b-container>
           <transition name="fade">
             <b-row v-if="item.detail" class="pt-5">
@@ -140,109 +193,58 @@ export default {
   components: { InquiryItem, Detail },
   data() {
     return {
+      bgGradient: [
+        "#eaf2f2",
+        "#5cc4b9",
+        "#34c0a6",
+        "#09c5a2",
+        "#139980",
+        "#008486",
+      ],
       items: [
         {
           name: "item-1",
-          title: "햇살론",
-          slide: {
-            subTitle: "국가가 지원하는 '정부지원 서민대출'",
-            pill: "온라인 햇살론 진행시 비대면 자동심사",
-            description: [
-              "최저 연 8.69% ~ 최고 연 10.29%",
-              "온라인 햇살론 진행시 1.3% 인하",
-              "최대 2,000만원까지 가능",
-              "중도상환수수료 없음",
-            ],
-          },
-          card: {
-            subTitle:
-              "저신용, 저소득 서민을 대상으로 지원해주는 보증부 서민대출",
-            condition: {
-              limit:
-                "<p>최대 2,000만원</p><span>최소 600만원~ 최대 2,000만원(개인신용평점별 차등)</span>",
-              rate: "<p>최저 연8.69% ~ <br/>최고 연10.29%</p><span>개인신용평점별 차등 매월금융감독원 고시금리에 따라 변동/2022.03.01 기준 온라인 햇살론 진행시 1.3%인하(당일송금가능)</span>",
-              term: "<p>3년 또는 5년</p><span>중 택일가능</span>",
-              return: "<p>원금균등분할상환</p>",
-            },
-          },
+          title: "행복아파트론",
+          subTitle: "무담보! 무설정!",
+          description: "아파트소유자 대상 신용대출",
+          limit:
+            "최대<span class='gothic'>2억</span>원<span class='text-noto text-20'> (최저 300만원)",
+          rate: "연 <span class='gothic'>5.9% ~ 16.9%</span>",
+          term: "<span class='gothic'>12 ~ 120</span>개월",
           detail: false,
-          color: "#ff9c01",
         },
         {
           name: "item-2",
-          title: "사잇돌2",
-          slide: {
-            subTitle: "서울보증보험 연계 서민대출",
-            pill: "중·저 신용자를 위한 대출",
-            description: [
-              "최저 연 10.5% ~ 최고 연 19.49%",
-              "최대 3,000만원까지 가능",
-              "중도상환수수료 없음",
-            ],
-          },
-          card: {
-            subTitle: "중·저 신용자를 위한 대출",
-            condition: {
-              limit:
-                "<p>최대 3,000만원</p><span>최소 100만원~ 최대 3,000만원(단, 서울보증보험 승인금액 이내)</span>",
-              rate: "<p>최저 연10.5% ~ <br/>최고 연19.49%</p><span>개인신용평점별 차등/기준일: 2022.01.03</span>",
-              term: "<p>1년 ~ 5년</p><span>대출기간은 년 단위로 취급가능<p>",
-              return: "<p>원금균등분할상환</p>",
-            },
-          },
+          title: "e하나신용대출",
+          subTitle: "소득이 있으면 빠르고 간편하게!",
+          description: "소득자 간편이용 인터넷 전용 신용대출",
+          limit:
+            "최대<span class='gothic'>7,000</span>만원<span class='text-noto text-20'> (최저 300만원)",
+          rate: "연 <span class='gothic'>5.9% ~ 18.9%</span>",
+          term: "<span class='gothic'>12 ~ 120</span>개월",
           detail: false,
-          color: "#0a6e01",
         },
         {
           name: "item-3",
-          title: "하나드림론",
-          slide: {
-            subTitle: "근로소득자를 위한 신용대출",
-            pill: "고금리 부담을 줄여드리는 하나드림론",
-            description: [
-              "최저 연 5.9% ~ 최고 연 19.49%",
-              "최대 5,000만원까지 가능",
-              "최대 72개월 분할상환",
-            ],
-          },
-          card: {
-            subTitle: "근로소득자를 위한 대출",
-            condition: {
-              limit:
-                "<p>최대 5,000만원</p><span>최소 300만원~ 최대 5,000만원 이내</span>",
-              rate: "<p>최저 연5.9% ~ <br/>최고 연19.49%</p><span>기준금리+가산금리 (개인신용평점 차등, 2022.01.03 기준)</span>",
-              term: "<p>1년 ~ 6년</p><span>대출기간은 년 단위로 취급가능</span>",
-              return: "<p>원금균등분할상환</p>",
-            },
-          },
+          title: "원큐자동차담보대출",
+          subTitle: "내 차는 그대로 타면 돼!",
+          description: "자동차 소유자 대상 온라인 담보대출",
+          limit:
+            "최대<span class='gothic'>1억</span>원<span class='text-noto text-20'> (최저 100만원)",
+          rate: "연 <span class='gothic'>4.9% ~ 16.9%</span>",
+          term: "<span class='gothic'>12 ~ 120</span>개월",
           detail: false,
-          color: "#31c9ee",
         },
         {
           name: "item-4",
-          title: "하나슈퍼드림론",
-          slide: {
-            subTitle: "근로소득자를 위한 신용대출",
-            pill: "우량직장인을 위한 대출",
-            description: [
-              "최저 연 5.9% ~ 최고 연 17.99%",
-              "최대 1억원까지 가능",
-              "최대 10년 상환",
-              "만기일시상환 가능",
-            ],
-          },
-          card: {
-            subTitle: "근로소득자를 위한 신용대출",
-            condition: {
-              limit:
-                "<p>최대 1억원</p><span>최소 300만원 ~ 최대 1억원 이내</span>",
-              rate: "<p>최저 연5.9% ~ <br/>최고 연17.99%</p><span>기준금리+가산금리 (개인신용평점별 차등, 2022.01.03 기준)</span>",
-              term: "<p>1년 ~ 10년</p><span>대출기간은 년 단위로 취급가능</span>",
-              return: "<p>원금균등분할상환 <br/>만기일시상환 중 택일</p>",
-            },
-          },
+          title: "아파트론",
+          subTitle: "개인사업자를 위한 상품!",
+          description: "아파트소유자 대상 신용대출",
+          limit:
+            "최대<span class='gothic'>2억</span>원<span class='text-noto text-20'> (최저 300만원)",
+          rate: "연 <span class='gothic'>5.9% ~ 16.9%</span>",
+          term: "<span class='gothic'>12 ~ 120</span>개월",
           detail: false,
-          color: "#43b546",
         },
       ],
     };
