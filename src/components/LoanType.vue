@@ -68,20 +68,22 @@
         <InquiryItem />
       </b-container>
     </section>
-    <b-container>
-      <!-- <b-row class="text-center mb-5">
-          <h2 class="fw-900">
-            <span>간편상담 신청하기</span>
-          </h2>
-        </b-row> -->
-    </b-container>
+    <b-container> </b-container>
     <!-- 상품별 안내 -->
-    <article v-for="(item, i) in items" :id="item.name" :key="item.name">
+    <article v-for="item in items" :id="item.name" :key="item.name">
       <!-- 간편설명 -->
       <section class="border-top py-5">
         <b-container>
-          <h2 class="text-50 fw-900">{{ item.title }}</h2>
-          <span class="text-30">{{ item.description }}</span>
+          <div
+            class="gothic text-center"
+            :style="{
+              background: `url(${item.bgImg[0]}) no-repeat left bottom, url(${item.bgImg[1]}) no-repeat right bottom`,
+            }"
+          >
+            <p class="text-30 mb-1 mainColor">{{ item.subTitle }}</p>
+            <h3 class="text-65 mb-3">{{ item.title }}</h3>
+            <p class="text-30 mb-5">{{ item.description }}</p>
+          </div>
           <b-row class="text-center align-items-end my-5 pt-3">
             <b-col class="border-end">
               <img
@@ -167,16 +169,91 @@
         </b-container>
       </section>
       <!-- 상세설명 -->
-
       <section :style="{ background: bgGradient[0] }">
         <b-container>
-          <transition name="fade">
-            <b-row v-if="item.detail" class="pt-5">
-              <template v-if="i == 0"><Detail :one="true" /></template>
-              <template v-if="i == 1"><Detail :two="true" /></template>
-              <template v-if="i == 2"><Detail :three="true" /></template>
-              <template v-if="i == 3"><Detail :four="true" /></template>
-            </b-row>
+          <transition name="fade" v-if="item.detail">
+            <article class="py-5">
+              <h2 class="hana b text-25 text-center pb-3">
+                <span class="mainColor">{{ item.title }}</span> 상품안내
+              </h2>
+              <b-row class="gy-4">
+                <b-col cols="6">
+                  <b-row
+                    class="align-items-center h-100 rounded bg-white p-4"
+                    :style="{ border: '1px solid #cdcdcd' }"
+                  >
+                    <h3 class="hana b mainColor2 text-25 mb-3">대출대상</h3>
+                    <div
+                      v-html="item.detailDescription.target"
+                      class="m-0 text-20"
+                    ></div>
+                  </b-row>
+                </b-col>
+                <b-col cols="6">
+                  <b-row
+                    class="align-items-center h-100 rounded bg-white p-4"
+                    :style="{ border: '1px solid #cdcdcd' }"
+                  >
+                    <h3 class="hana b mainColor2 text-25 mb-3">상환방법</h3>
+                    <div
+                      v-html="item.detailDescription.repay"
+                      class="m-0 text-20"
+                    ></div>
+                  </b-row>
+                </b-col>
+                <b-col cols="6">
+                  <b-row
+                    class="align-items-center h-100 rounded bg-white p-4"
+                    :style="{ border: '1px solid #cdcdcd' }"
+                  >
+                    <h3 class="hana b mainColor2 text-25 mb-3">
+                      중도상환수수료
+                    </h3>
+                    <div
+                      v-html="item.detailDescription.prepayment"
+                      class="m-0 text-20"
+                    ></div>
+                  </b-row>
+                </b-col>
+                <b-col cols="6">
+                  <b-row
+                    class="align-items-center h-100 rounded bg-white p-4"
+                    :style="{ border: '1px solid #cdcdcd' }"
+                  >
+                    <h3 class="hana b mainColor2 text-25 mb-3">연체이자율</h3>
+                    <div
+                      v-html="item.detailDescription.overdue"
+                      class="m-0 text-20"
+                    ></div>
+                  </b-row>
+                </b-col>
+                <b-col cols="6">
+                  <b-row
+                    class="align-items-center h-100 rounded bg-white p-4"
+                    :style="{ border: '1px solid #cdcdcd' }"
+                  >
+                    <h3 class="hana b mainColor2 text-25 mb-3">이자부과시기</h3>
+                    <div
+                      v-html="item.detailDescription.imposition"
+                      class="m-0 text-20"
+                    ></div>
+                  </b-row>
+                </b-col>
+                <!-- 저당설정 -->
+                <b-col cols="6" v-if="item.detailDescription.mortgage">
+                  <b-row
+                    class="align-items-center h-100 rounded bg-white p-4"
+                    :style="{ border: '1px solid #cdcdcd' }"
+                  >
+                    <h3 class="hana b mainColor2 text-25 mb-3">저당설정</h3>
+                    <div
+                      v-html="item.detailDescription.mortgage"
+                      class="m-0 text-20"
+                    ></div>
+                  </b-row>
+                </b-col>
+              </b-row>
+            </article>
           </transition>
         </b-container>
       </section>
@@ -186,11 +263,10 @@
 
 <script>
 import InquiryItem from "./InquiryItem.vue";
-import Detail from "./Detail.vue";
 
 export default {
   name: "Home",
-  components: { InquiryItem, Detail },
+  components: { InquiryItem },
   data() {
     return {
       bgGradient: [
@@ -211,7 +287,24 @@ export default {
             "최대<span class='gothic'>2억</span>원<span class='text-noto text-20'> (최저 300만원)",
           rate: "연 <span class='gothic'>5.9% ~ 16.9%</span>",
           term: "<span class='gothic'>12 ~ 120</span>개월",
-          detail: false,
+          detail: true,
+          detailDescription: {
+            // 대상
+            target: "아파트를 소유한 손님(본인 또는 배우자 공동명의)",
+            // 상환방법
+            repay: "원리금균등분할상환만기일시상환(당사 기준 충족 시)",
+            // 중도상환수수료
+            prepayment:
+              "대출실행일 기준 경과기간에 따라 차등 적용되며, 3년 경과시 면제 ※ 중도상환수수료율 : 2%",
+            // 연체이자율
+            overdue: "약정이율 + 3%(법정최고금리 연 20% 이내)",
+            // 이자부과시기
+            imposition: "매월 후취",
+          },
+          bgImg: [
+            require("@/assets/images/town1.svg"),
+            require("@/assets/images/town2.svg"),
+          ],
         },
         {
           name: "item-2",
@@ -222,7 +315,23 @@ export default {
             "최대<span class='gothic'>7,000</span>만원<span class='text-noto text-20'> (최저 300만원)",
           rate: "연 <span class='gothic'>5.9% ~ 18.9%</span>",
           term: "<span class='gothic'>12 ~ 120</span>개월",
-          detail: false,
+          detail: true,
+          detailDescription: {
+            // 대상
+            target: "재직기간 6개월 이상 직장인 그 외 당사기준 충족 손님",
+            // 상환방법
+            repay: "원리금균등분할상환",
+            // 중도상환수수료
+            prepayment: "없음",
+            // 연체이자율
+            overdue: "약정이율 + 3% (법정최고금리 연 20% 이내)",
+            // 이자부과시기
+            imposition: "매월 후취",
+          },
+          bgImg: [
+            require("@/assets/images/money1.svg"),
+            require("@/assets/images/money2.svg"),
+          ],
         },
         {
           name: "item-3",
@@ -233,7 +342,26 @@ export default {
             "최대<span class='gothic'>1억</span>원<span class='text-noto text-20'> (최저 100만원)",
           rate: "연 <span class='gothic'>4.9% ~ 16.9%</span>",
           term: "<span class='gothic'>12 ~ 120</span>개월",
-          detail: false,
+          detail: true,
+          detailDescription: {
+            // 대상
+            target: "본인명의 차량 3개월 이상 소유자(출고 10년 이내로 제한)",
+            // 상환방법
+            repay: "원리금균등분할상환",
+            // 저당설정
+            mortgage: "당사 1순위 설정(차량시세의 최대 80% 설정)",
+            // 중도상환수수료
+            prepayment:
+              "대출실행일 기준 경과기간에 따라 차등 적용되며, 3년 경과시 면제 ※ 중도상환수수료율 : 2%",
+            // 연체이자율
+            overdue: "약정이율 + 3% (법정최고금리 연 20% 이내)",
+            // 이자부과시기
+            imposition: "매월 후취",
+          },
+          bgImg: [
+            require("@/assets/images/car1.svg"),
+            require("@/assets/images/car2.svg"),
+          ],
         },
         {
           name: "item-4",
@@ -244,7 +372,24 @@ export default {
             "최대<span class='gothic'>2억</span>원<span class='text-noto text-20'> (최저 300만원)",
           rate: "연 <span class='gothic'>5.9% ~ 16.9%</span>",
           term: "<span class='gothic'>12 ~ 120</span>개월",
-          detail: false,
+          detail: true,
+          detailDescription: {
+            // 대상
+            target: "아파트를 소유한 손님(본인 또는 배우자 공동명의)",
+            // 상환방법
+            repay: "원리금균등분할상환",
+            // 중도상환수수료
+            prepayment:
+              "대출실행일 기준 경과기간에 따라 차등 적용되며, 3년 경과시 면제 ※ 중도상환수수료율 : 2%",
+            // 연체이자율
+            overdue: "약정이율 + 3% (법정최고금리 연 20% 이내)",
+            // 이자부과시기
+            imposition: "매월 후취",
+          },
+          bgImg: [
+            require("@/assets/images/town3.svg"),
+            require("@/assets/images/town4.svg"),
+          ],
         },
       ],
     };
@@ -261,72 +406,5 @@ export default {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-}
-.itemStyle {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  color: #000;
-  li {
-    width: 23%;
-    // background: #fff;
-    // border-radius: 1rem;
-    // padding: 1.5rem;
-    > span {
-      font-weight: 900;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      display: block;
-      color: #fff;
-    }
-    div {
-      box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.2);
-      padding: 0 1.5rem;
-      background: #fff;
-      border-radius: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-      p {
-        font-size: 1.5rem;
-        font-weight: 900;
-        margin: 0;
-      }
-      span {
-        font-size: 0.9rem;
-      }
-    }
-  }
-}
-.buttonOver {
-  position: relative;
-  overflow: hidden;
-  transition: color 0.2s ease-in-out;
-  box-shadow: 5px 5px 0;
-  z-index: 1;
-  &:active {
-    position: relative;
-    left: 5px;
-    top: 5px;
-    box-shadow: 0 0 0;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    background: #fff;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    bottom: -100%;
-    transition: bottom 0.2s ease-in-out;
-    z-index: -1;
-  }
-  &:hover {
-    color: #000 !important;
-    &::after {
-      bottom: 0;
-    }
-  }
 }
 </style>

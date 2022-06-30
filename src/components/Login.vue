@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="center">
     <b-container class="w-25">
       <b-row class="yellow-wrap">
         <p class="text-30 fw-900 mb-4">로그인</p>

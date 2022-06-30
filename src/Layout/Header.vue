@@ -123,12 +123,13 @@ export default {
 <style lang="scss" scoped>
 .nav-item {
   &.active {
-    color: #000;
-    font-weight: 900;
+    .nav-link {
+      color: #ed1550;
+    }
   }
   .nav-link {
     color: #000;
-    &:hover,
+    // &:hover,
     &:active {
       color: #000;
     }
