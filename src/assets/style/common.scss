@@ -90,32 +90,47 @@ $subColor: #ed1550;
 
 .mainColor {
   color: $mainColor;
-  &:hover {
+  &:hover,
+  &:focus {
     color: $mainColor;
   }
 }
 .mainBg {
   background: $mainColor;
+  &:hover,
+  &:focus {
+    background: $mainColor;
+  }
 }
 
 .mainColor2 {
   color: $mainColor2;
-  &:hover {
+  &:hover,
+  &:focus {
     color: $mainColor2;
   }
 }
 .mainBg2 {
   background: $mainColor2;
+  &:hover,
+  &:focus {
+    background: $mainColor2;
+  }
 }
 
 .subColor {
   color: $subColor;
-  &:hover {
+  &:hover,
+  &:focus {
     color: $subColor;
   }
 }
 .subBg {
   background: $subColor;
+  &:hover,
+  &:focus {
+    background: $subColor;
+  }
 }
 
 .main-slide {
@@ -230,25 +245,25 @@ li.page-item.disabled {
   }
 }
 
-.yellow {
-  background: #009591;
-}
+// .yellow {
+//   background: #009591;
+// }
 
-.yellow-underline {
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    z-index: -1;
-    background: #83d9d7;
-  }
-}
+// .yellow-underline {
+//   position: relative;
+//   display: inline-block;
+//   z-index: 1;
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     bottom: 10px;
+//     left: 0;
+//     width: 100%;
+//     height: 10px;
+//     z-index: -1;
+//     background: #83d9d7;
+//   }
+// }
 
 .form-group label {
   margin-bottom: 5px;

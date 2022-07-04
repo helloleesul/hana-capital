@@ -10,19 +10,16 @@
 
     <b-container>
       <b-row class="yellow-wrap title mb-5">
-        <p class="text-30 fw-900 m-0">계정 목록</p>
+        <p class="text-30 gothic m-0">계정 목록</p>
       </b-row>
       <b-row class="mb-3">
         <b-col>
           <b-btn
             @click="$router.push('/admin/userCreate')"
-            pill
+            class="subBg border-0"
             block
-            :style="{ background: '#FDDA00', border: '3px solid #000' }"
           >
-            <span class="text-18 px-2 fw-900" :style="{ color: '#000' }"
-              >새 계정 추가</span
-            >
+            <span class="text-18 px-2 fw-900">새 계정 추가</span>
           </b-btn>
         </b-col>
         <b-col class="col-3">
@@ -238,7 +235,7 @@ export default {
           "님을 ",
           h(
             "strong",
-            { class: ["fw-900 yellow-underline"] },
+            { class: ["fw-900 "] },
             row.item.leave ? "비활성" : "활성"
           ),
           "상태로 변경했습니다. ",
@@ -281,7 +278,7 @@ export default {
 table {
   border-top: 1px solid #dee2e6;
 }
-.yellow-underline::before {
-  bottom: 0;
-}
+// .yellow-underline::before {
+//   bottom: 0;
+// }
 </style>

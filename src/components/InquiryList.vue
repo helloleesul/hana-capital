@@ -9,8 +9,8 @@
     <!-- <p>{{inquiryItems[2].user.serviceId === null ? 'ㄴㄴㄴㄴ' : inquiryItems[2].user.serviceId}}</p> -->
 
     <b-container>
-      <b-row class="yellow-wrap title mb-5">
-        <p class="text-30 fw-900 m-0">상담신청 목록</p>
+      <b-row class="title mb-3">
+        <p class="text-30 gothic m-0">상담신청 목록</p>
       </b-row>
       <b-form-group v-slot="{ ariaDescribedby }" class="mb-3 text-right">
         <b-form-select

@@ -1,8 +1,12 @@
 <template>
   <main class="center">
     <b-container class="w-25">
-      <b-row class="yellow-wrap">
-        <p class="text-30 fw-900 mb-4">로그인</p>
+      <b-row class="">
+        <img
+          src="@/assets/images/logo.svg"
+          alt="이도금융"
+          class="w-50 m-auto mb-5"
+        />
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
           <b-form @submit.prevent="handleSubmit(login)">
             <validation-provider
@@ -54,16 +58,8 @@
               </b-form-group>
             </validation-provider>
 
-            <b-button
-              class="mt-5 w-100"
-              type="submit"
-              pill
-              block
-              :style="{ background: '#FDDA00', border: '3px solid #000' }"
-            >
-              <span class="text-20 px-4 fw-900" :style="{ color: '#000' }"
-                >로그인</span
-              >
+            <b-button class="mt-4 w-100 mainBg border-0" type="submit" block>
+              <span class="text-20 px-4 fw-900">로그인</span>
             </b-button>
           </b-form>
         </validation-observer>

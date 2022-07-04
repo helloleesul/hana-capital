@@ -2,8 +2,7 @@
   <validation-observer ref="observer" v-slot="{ handleSubmit }" v-if="show">
     <b-form
       @submit.prevent="handleSubmit(changePwd)"
-      class="pt-3 mt-4"
-      :style="{ borderTop: '3px dashed #000' }"
+      class="pt-3 mt-4 border-top"
     >
       <validation-provider
         name="현재 비밀번호"
@@ -84,16 +83,8 @@
       </validation-provider>
 
       <!-- <b-button type="submit" variant="primary">비밀번호 변경</b-button> -->
-      <b-button
-        type="submit"
-        class="mt-4"
-        pill
-        block
-        :style="{ background: '#FDDA00', border: '3px solid #000' }"
-      >
-        <span class="text-20 px-4 fw-900" :style="{ color: '#000' }"
-          >재설정</span
-        >
+      <b-button type="submit" class="mt-4 w-100 mainBg border-0">
+        <span class="text-20 px-4 fw-900">재설정</span>
       </b-button>
       <!-- {{input}} -->
     </b-form>

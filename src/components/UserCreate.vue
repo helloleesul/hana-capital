@@ -1,8 +1,8 @@
 <template>
   <main class="center">
     <b-container class="w-25">
-      <b-row class="yellow-wrap">
-        <p class="text-30 fw-900 mb-4">새 계정 추가</p>
+      <b-row>
+        <p class="text-30 mb-4 gothic">새 계정 추가</p>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
           <b-form @submit.prevent="handleSubmit(userCreate)">
             <validation-provider
@@ -53,20 +53,15 @@
                 <!-- <b-btn @click="serviceIdCheck()" pill :style="{background:'#FDDA00',border:'3px solid #000', position:'absolute',right:0,top:0}"> -->
                 <b-btn
                   @click="serviceIdCheck()"
-                  class="p-0 text-decoration-none yellow-underline"
-                  pill
-                  variant="link"
                   :style="{
                     position: 'absolute',
                     right: 0,
                     top: 0,
-                    lineHeight: 1.7,
-                    zIndex: 1,
                   }"
+                  variant="link"
+                  class="subColor text-decoration-none p-0"
                 >
-                  <span class="fw-900 text-17" :style="{ color: '#000' }"
-                    >중복확인</span
-                  >
+                  <span class="text-17 fw-900">중복확인</span>
                 </b-btn>
               </b-form-group>
             </validation-provider>
@@ -108,16 +103,8 @@
                             </b-form-group>
                         </validation-provider> -->
 
-            <b-button
-              class="mt-5 w-100"
-              type="submit"
-              pill
-              block
-              :style="{ background: '#FDDA00', border: '3px solid #000' }"
-            >
-              <span class="text-20 px-4 fw-900" :style="{ color: '#000' }"
-                >생성</span
-              >
+            <b-button class="mt-4 w-100 mainBg border-0" type="submit" block>
+              <span class="text-20 px-4 fw-900">생성</span>
             </b-button>
             <!-- {{input}} -->
           </b-form>

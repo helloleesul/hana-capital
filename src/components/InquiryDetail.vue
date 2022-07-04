@@ -4,8 +4,8 @@
       <ErrorPage />
     </b-container>
     <b-container v-else>
-      <b-row class="yellow-wrap title mb-5">
-        <p class="text-30 fw-900 m-0">상담신청 상세</p>
+      <b-row class="title mb-3">
+        <p class="text-30 gothic m-0">상담신청 상세</p>
       </b-row>
       <!-- {{item}} -->
       <!-- {{item.comments}} -->
@@ -14,7 +14,10 @@
         <b-col class="me-5">
           <b-row class="mb-3 align-items-center">
             <b-col>
-              <b-btn @click="$router.go(-1)" variant="dark fw-900 text-17">
+              <b-btn
+                @click="$router.go(-1)"
+                class="fw-900 text-17 text-white border-0"
+              >
                 <font-awesome-icon icon="arrow-left" />
                 <span class="ms-2">이전으로</span>
               </b-btn>
@@ -48,14 +51,16 @@
             </b-list-group>
 
             <template #footer>
-              <b-row class="align-items-center">
+              <b-row class="align-items-center text-17">
                 <b-col>
                   <span class="text-muted">신청일시</span>
-                  {{ $moment(item.createDate).format("YYYY-MM-DD hh:mm a") }}
+                  <span class="fw-900">
+                    {{ $moment(item.createDate).format("YYYY-MM-DD hh:mm a") }}
+                  </span>
                 </b-col>
-                <b-col class="text-right fw-900 text-17">
+                <b-col class="text-right text-muted">
                   <span :style="{ borderRadius: '2rem' }">최종처리자</span>
-                  <span v-if="item.user" class="ms-2 yellow-underline">{{
+                  <span v-if="item.user" class="ms-2 text-black fw-900">{{
                     item.user.name
                   }}</span>
                   <span v-else class="ms-2">-</span>
@@ -83,7 +88,10 @@
               </b-form-radio-group>
             </b-col>
             <b-col class="text-right">
-              <b-btn @click="newCommentToggle()" variant="dark fw-900 text-17">
+              <b-btn
+                @click="newCommentToggle()"
+                class="subBg text-white fw-900 text-17 border-0"
+              >
                 <font-awesome-icon :icon="newCommentShow ? 'minus' : 'plus'" />
                 기록 작성
               </b-btn>
@@ -490,7 +498,7 @@ export default {
           h("p", { class: ["mb-0"] }, [
             // h('strong', { class: ['fw-900'] }, oldval),
             // '에서 ',
-            h("strong", { class: ["fw-900 yellow-underline"] }, newVal),
+            h("strong", { class: ["fw-900 "] }, newVal),
             " 변경되었습니다. ",
           ]),
         ]);
@@ -544,9 +552,9 @@ export default {
 .text-muted {
   font-size: 17px;
 }
-.yellow-underline::before {
-  bottom: 0;
-}
+// .yellow-underline::before {
+//   bottom: 0;
+// }
 .statusSelected {
   $wait: rgba(255, 69, 0, 0.8);
   $ing: lightseagreen;
@@ -557,7 +565,7 @@ export default {
     background: #fff;
     font-size: 17px;
     font-weight: 700;
-    border-radius: 0.25rem !important;
+    border-radius: 100px !important;
     padding: 0.375rem 1.5rem;
     color: $disable !important;
     border-color: $disable !important;

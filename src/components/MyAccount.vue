@@ -1,26 +1,25 @@
 <template>
   <main class="center">
     <b-container class="w-50">
-      <b-row class="yellow-wrap">
-        <p class="text-30 fw-900 mb-4 position-relative">
-          내 정보수정
-          <b-btn
-            @click="changePwdToggle()"
-            pill
-            block
-            :style="{
-              background: '#ddd',
-              border: '3px solid #000',
-              float: 'right',
-            }"
-          >
-            <span class="fw-900 text-20 px-4" :style="{ color: '#000' }"
+      <b-row class="mb-4">
+        <b-col>
+          <p class="text-30 gothic position-relative">내 정보수정</p>
+        </b-col>
+        <b-col class="text-right">
+          <b-btn @click="changePwdToggle()" class="subBg border-0">
+            <span class="fw-900 text-20 px-2"
               >비밀번호 재설정
               <font-awesome-icon :icon="changePwdShow ? 'minus' : 'plus'"
             /></span>
           </b-btn>
-        </p>
-        <validation-observer ref="observer" v-slot="{ handleSubmit }">
+        </b-col>
+      </b-row>
+      <b-row class="">
+        <validation-observer
+          ref="observer"
+          v-slot="{ handleSubmit }"
+          class="p-0"
+        >
           <b-form @submit.prevent="handleSubmit(updateMe)">
             <div
               class="d-flex justify-content-between"
@@ -125,15 +124,10 @@
 
             <b-button
               type="submit"
-              class="mt-4"
+              class="mt-4 w-100 mainBg border-0"
               v-if="update"
-              pill
-              block
-              :style="{ background: '#FDDA00', border: '3px solid #000' }"
             >
-              <span class="text-20 px-4 fw-900" :style="{ color: '#000' }"
-                >정보수정</span
-              >
+              <span class="text-20 px-4 fw-900">정보수정</span>
             </b-button>
           </b-form>
         </validation-observer>
