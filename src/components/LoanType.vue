@@ -323,7 +323,7 @@ export default {
           subTitle: "무담보! 무설정!",
           description: "아파트소유자 대상 신용대출",
           limit:
-            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>2억</span>원<span class='text-noto text-20 d-none d-md-block'> (최저 300만원)</span>",
+            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>2억</span>원<span class='text-noto text-20 d-none d-md-inline-block'> (최저 300만원)</span>",
           rate: "연 <span class='gothic'>5.9% <span class='d-none d-md-inline-block'>~ 16.9%</span></span>",
           term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
@@ -351,7 +351,7 @@ export default {
           subTitle: "소득이 있으면 빠르고 간편하게!",
           description: "소득자 간편이용 인터넷 전용 신용대출",
           limit:
-            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>7,000</span>만원<span class='text-noto text-20 d-none d-md-block'> (최저 300만원)</span>",
+            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>7,000</span>만원<span class='text-noto text-20 d-none d-md-inline-block'> (최저 300만원)</span>",
           rate: "연 <span class='gothic'>5.9% <span class='d-none d-md-inline-block'>~ 18.9%</span></span>",
           term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
@@ -378,7 +378,7 @@ export default {
           subTitle: "내 차는 그대로 타면 돼!",
           description: "자동차 소유자 대상 온라인 담보대출",
           limit:
-            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>1억</span>원<span class='text-noto text-20 d-none d-md-block'> (최저 100만원)</span>",
+            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>1억</span>원<span class='text-noto text-20 d-none d-md-inline-block'> (최저 100만원)</span>",
           rate: "연 <span class='gothic'>4.9% <span class='d-none d-md-inline-block'>~ 16.9%</span></span>",
           term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
@@ -408,7 +408,7 @@ export default {
           subTitle: "개인사업자를 위한 상품!",
           description: "아파트소유자 대상 신용대출",
           limit:
-            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>2억</span>원<span class='text-noto text-20 d-none d-md-block'> (최저 300만원)</span>",
+            "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>2억</span>원<span class='text-noto text-20 d-none d-md-inline-block'> (최저 300만원)</span>",
           rate: "연 <span class='gothic'>5.9% <span class='d-none d-md-inline-block'>~ 16.9%</span></span>",
           term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
