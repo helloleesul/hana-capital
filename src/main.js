@@ -66,7 +66,8 @@ Vue.use(vuescroll, {
 Vue.config.productionTip = false;
 
 Vue.prototype.$axios = axios;
-axios.defaults.baseURL = "http://localhost:8100";
+// axios.defaults.baseURL = "http://localhost:8100";
+axios.defaults.baseURL = "http://54.180.79.247:8100";
 axios.interceptors.response.use(
   (response) => {
     return response;
