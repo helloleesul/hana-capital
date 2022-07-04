@@ -5,7 +5,7 @@
         <img
           src="@/assets/images/logo.svg"
           alt="이도금융"
-          class="w-50 m-auto mb-5"
+          class="w-50 m-auto mb-5 opacity-50"
         />
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
           <b-form @submit.prevent="handleSubmit(login)">

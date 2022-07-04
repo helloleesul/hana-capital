@@ -1,11 +1,11 @@
 <template>
   <header class="border-bottom hana" id="header">
     <b-container id="top">
-      <b-row class="align-items-center justify-content-between">
-        <b-col class="col-3">
+      <b-row class="align-items-center justify-content-between py-3 py-md-4">
+        <b-col class="" md="3" cols="12">
           <b-navbar-brand
             tag="h1"
-            class="m-0 p-0 fw-900 text-25 cursor-pointer d-inline-block hana l"
+            class="m-0 p-0 mb-3 text-center text-md-start mb-md-0 fw-900 text-25 cursor-pointer hana l"
             :style="{ color: '#008486' }"
             @click="$router.push('/').catch(() => {}), scrollTop()"
           >
@@ -13,7 +13,7 @@
             이도금융
           </b-navbar-brand>
         </b-col>
-        <b-col class="col-8 text-24 text-right p-0">
+        <b-col class="text-24 text-right p-0" md="8" cols="12">
           <b-row class="align-items-center justify-content-between">
             <!-- 관리자 헤더 -->
             <template v-if="path.includes('/admin')">
@@ -82,7 +82,7 @@
                   </b-nav-item>
                 </b-nav>
               </b-col>
-              <b-col class="gothic">
+              <b-col class="gothic d-none d-md-block">
                 <span class="me-2 text-22 gothic r">상담전화</span>
                 <a href="tel:1600-1481" class="mainColor text-30 align-middle"
                   >1600-1481</a

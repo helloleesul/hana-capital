@@ -1,5 +1,5 @@
 <template>
-  <b-row class="m-auto w-50 text-20">
+  <b-row class="m-auto w-50 text-md-20">
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <b-form @submit.prevent="handleSubmit(submit)">
         <validation-provider
@@ -119,11 +119,12 @@
         >
           <b-btn
             type="submit"
-            class="w-100 text-30 text-decoration-none text-white gothic p-4"
+            class="w-100 text-md-30 text-22 text-decoration-none text-white gothic p-md-4"
             variant="link"
             ><img
               :src="require('@/assets/images/ico_headset.png')"
               alt="상담"
+              class="d-none d-md-inline-block"
             />
             간편상담 신청하기</b-btn
           >

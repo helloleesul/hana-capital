@@ -13,14 +13,25 @@
     <!-- 유저화면 -->
     <template v-else>
       <section>
-        <b-container class="py-5 gothic">
+        <b-container class="py-md-5 py-3 gothic">
           <b-row class="align-items-center">
-            <b-col>
+            <b-col
+              class="text-center text-md-start mb-3 mb-md-0"
+              cols="12"
+              md="6"
+            >
               <img :src="require('@/assets/images/pig.png')" alt="" />
             </b-col>
-            <b-col class="text-36">
+            <b-col
+              class="text-md-36 text-24 text-center text-md-start"
+              cols="12"
+              md="6"
+            >
               전국 어디서나! 24시간 빠른대출! <br />
-              <a class="d-inline-block text-65 mainColor" href="tel:1600-1481">
+              <a
+                class="d-inline-block text-md-65 text-30 mainColor"
+                href="tel:1600-1481"
+              >
                 1600-1481
               </a>
             </b-col>
@@ -28,8 +39,8 @@
         </b-container>
       </section>
       <section class="notice bg-light">
-        <b-container class="py-5">
-          <ul class="text-17">
+        <b-container class="py-md-5 py-2">
+          <ul class="text-md-17 text-15">
             <li>
               <span>※</span>
               <span>
@@ -100,10 +111,10 @@
           </ul>
         </b-container>
       </section>
-      <section class="address py-5 opacity-50">
+      <section class="address py-md-5 py-3 mb-md-0 mb-5 opacity-50">
         <b-container>
-          <b-row class="border-bottom pb-4">
-            <b-col>
+          <b-row class="border-bottom pb-md-4 pb-2 align-items-center">
+            <b-col class="mb-md-0 mb-2" cols="7" md="5">
               <b-navbar-brand tag="h1" class="m-0 p-0 fw-900 text-25 hana cm">
                 <img
                   src="@/assets/images/logo.svg"
@@ -114,20 +125,24 @@
                 이도금융
               </b-navbar-brand>
             </b-col>
-            <b-col class="footer-btns text-end">
-              <b-button v-b-modal.check-1 variant="link text-17"
+            <b-col class="footer-btns text-end" cols="5" md="7">
+              <b-button v-b-modal.check-1 variant="link text-14 text-md-17"
                 >개인정보취급방침</b-button
               >
-              <b-button v-b-modal.check-2 variant="link text-17"
+              <b-button v-b-modal.check-2 variant="link text-14 text-md-17"
                 >이용동의</b-button
               >
-              <b-button variant="link text-17">등록업체조회</b-button>
-              <b-button variant="link text-17" to="/admin/inquiryList"
+              <b-button variant="link  text-14 text-md-17"
+                >등록업체조회</b-button
+              >
+              <b-button
+                variant="link text-14 text-md-17"
+                to="/admin/inquiryList"
                 >사이트 관리</b-button
               >
             </b-col>
           </b-row>
-          <b-row class="align-items-center text-17 pt-4">
+          <b-row class="align-items-center text-14 text-md-17 pt-4">
             <address class="p-0">
               사이트명: 야호캐피탈 | 상호: (주)119머니대부중개 | TEL: 1670-6520
               | 사업자번호: 131-86-39685 | 대표: 박원희<br />
@@ -137,7 +152,7 @@
               주소: 인천광역시 남동구 예술로226번길 34, 로뎀프라자 301호(구월동)
               | 대출금리 연 20%이내(연체금리는 최대 연 20%이내)
             </address>
-            <p class="mb-0 p-0">
+            <p class="mb-0 p-0 text-justify">
               해당 상품은 신용 및 담보대출이며, 고객님의 개인신용평점 등
               신용도에 따라 이자율이 산출되어 적용. 대출기간
               12개월~60개월(예시:이자는 매월 약정일에 부과. 100만원을 연20%로

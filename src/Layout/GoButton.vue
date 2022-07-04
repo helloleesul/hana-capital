@@ -40,9 +40,62 @@
       <span class="d-block">TOP</span>
     </a>
   </b-nav> -->
-  <b-btn class="scrollTop-btn" @click="scrollTop()" variant="link">
-    <font-awesome-icon icon="angles-up" class="fa-2x" />
-  </b-btn>
+  <div>
+    <b-btn
+      class="scrollTop-btn d-none d-md-block"
+      @click="scrollTop()"
+      variant="link"
+    >
+      <font-awesome-icon icon="angles-up" class="fa-2x" />
+    </b-btn>
+    <div class="d-block d-md-none">
+      <b-btn class="scrollTop-btn mobile" @click="scrollTop()" variant="link">
+        <font-awesome-icon icon="angles-up" class="fa-2x" />
+      </b-btn>
+      <b-row
+        class="position-fixed w-100"
+        :style="{
+          bottom: 0,
+        }"
+      >
+        <b-col
+          :style="{
+            background: `url(${require('@/assets/images/btn_bg_gr.png')}) no-repeat center /cover !important`,
+          }"
+          class="shadow"
+        >
+          <b-btn
+            class="w-100 text-md-30 text-20 text-decoration-none text-white gothic p-md-4"
+            variant="link"
+          >
+            <img
+              :src="require('@/assets/images/ico_headset.png')"
+              alt="상담"
+              class="d-none d-md-inline-block"
+            />
+            전화상담 신청하기</b-btn
+          >
+        </b-col>
+        <b-col
+          :style="{
+            background: `url(${require('@/assets/images/btn_bg_rd.png')}) no-repeat center /cover !important`,
+          }"
+          class="shadow"
+        >
+          <b-btn
+            class="w-100 text-md-30 text-20 text-decoration-none text-white gothic p-md-4"
+            variant="link"
+            ><img
+              :src="require('@/assets/images/ico_graph.png')"
+              alt="그래프"
+              class="d-none d-md-inline-block"
+            />
+            간편 한도조회</b-btn
+          >
+        </b-col>
+      </b-row>
+    </div>
+  </div>
 </template>
 
 <script>

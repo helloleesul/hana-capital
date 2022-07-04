@@ -67,6 +67,10 @@ input:-webkit-autofill:active {
   cursor: pointer;
 }
 
+.text-justify {
+  text-align: justify !important;
+}
+
 main {
   &.center {
     height: 100%;
@@ -169,7 +173,7 @@ $subColor: #ed1550;
   color: #000;
   line-height: 1;
   .row {
-    height: 100px;
+    // height: 100px;
   }
 }
 
@@ -193,6 +197,11 @@ $subColor: #ed1550;
   bottom: 3rem;
   color: #fff;
   text-decoration: none;
+  &.mobile {
+    transform: scale(0.7);
+    right: 1rem;
+    bottom: 4rem;
+  }
   &::before {
     content: "";
     background: $mainColor2;
@@ -273,4 +282,31 @@ li.page-item.disabled {
 
 .sr-only {
   display: none !important;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .home-icons {
+    .col-md {
+      border: none !important;
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .w-50 {
+    width: 100% !important;
+  }
+  .w-25 {
+    width: 50% !important;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
 }
