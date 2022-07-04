@@ -153,9 +153,9 @@ $subColor: #ed1550;
   // position: relative;
   main {
     min-height: 78vh;
-    .container {
-      padding: 4rem 0;
-    }
+    // .container {
+    //   padding: 4rem 0;
+    // }
   }
 }
 
@@ -172,9 +172,6 @@ $subColor: #ed1550;
   z-index: 100;
   color: #000;
   line-height: 1;
-  .row {
-    // height: 100px;
-  }
 }
 
 #footer {

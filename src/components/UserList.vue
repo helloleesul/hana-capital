@@ -8,9 +8,9 @@
     <!-- <p>리스트 갯수 제한: {{perPage}}</p> -->
     <!-- <p>{{userItems[2].user.serviceId === null ? 'ㄴㄴㄴㄴ' : userItems[2].user.serviceId}}</p> -->
 
-    <b-container>
-      <b-row class="yellow-wrap title mb-5">
-        <p class="text-30 gothic m-0">계정 목록</p>
+    <b-container class="py-md-5 py-3">
+      <b-row class="title mb-3 text-md-start text-center">
+        <p class="text-30 gothic m-0 p-0">계정 목록</p>
       </b-row>
       <b-row class="mb-3">
         <b-col>

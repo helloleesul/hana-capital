@@ -2,46 +2,52 @@
   <header class="border-bottom hana" id="header">
     <b-container id="top">
       <b-row class="align-items-center justify-content-between py-3 py-md-4">
-        <b-col class="" md="3" cols="12">
+        <b-col class="" md="3" cols="2">
           <b-navbar-brand
             tag="h1"
-            class="m-0 p-0 mb-3 text-center text-md-start mb-md-0 fw-900 text-25 cursor-pointer hana l"
+            class="m-0 p-0 fw-900 text-25 cursor-pointer hana l"
             :style="{ color: '#008486' }"
             @click="$router.push('/').catch(() => {}), scrollTop()"
           >
             <img src="@/assets/images/logo.svg" alt="이도금융" width="40" />
-            이도금융
+            <span class="d-none d-md-inline-block ms-md-2"> 이도금융 </span>
           </b-navbar-brand>
         </b-col>
-        <b-col class="text-24 text-right p-0" md="8" cols="12">
+        <b-col class="text-24 text-end p-0" md="8" cols="10">
           <b-row class="align-items-center justify-content-between">
             <!-- 관리자 헤더 -->
             <template v-if="path.includes('/admin')">
               <!-- 로그인 상태 -->
               <template v-if="$store.getters.isLogin">
-                <b-col class="gothic text-22">
-                  <b-nav class="justify-content-center">
+                <b-col class="gothic text-md-22 text-18" cols="10" md="8">
+                  <b-nav
+                    class="justify-content-center justify-content-md-start"
+                  >
                     <b-nav-item
                       to="/admin/inquiryList"
                       :class="
                         path.includes('/admin/inquiryList') ? 'active' : ''
                       "
-                      >상담신청 관리</b-nav-item
-                    >
+                      >상담신청
+                      <span class="d-none d-md-inline-block"> 관리 </span>
+                    </b-nav-item>
                     <b-nav-item
                       to="/admin/userList"
                       v-if="$store.getters.isSuper"
+                      class="d-none d-md-inline-block"
                       :class="path.includes('/admin/user') ? 'active' : ''"
                       >계정 관리</b-nav-item
                     >
                     <b-nav-item
                       to="/admin/myAccount"
                       :class="path.includes('/admin/myAccount') ? 'active' : ''"
-                      >내 정보수정</b-nav-item
+                      >내 정보<span class="d-none d-md-inline-block"
+                        >수정</span
+                      ></b-nav-item
                     >
                   </b-nav>
                 </b-col>
-                <b-col>
+                <b-col class="d-none d-md-inline-block" cols="" md="4">
                   <span class="mx-2 gothic text-18">
                     {{ $store.state.name }}({{ $store.state.serviceId }}) 님
                   </span>
@@ -53,6 +59,12 @@
                   >
                     <span class="gothic"> 로그아웃 </span>
                   </b-btn>
+                </b-col>
+                <b-col class="d-inline-block d-md-none" cols="2">
+                  <font-awesome-icon
+                    @click="logout()"
+                    icon="fa-solid fa-arrow-right-from-bracket"
+                  />
                 </b-col>
               </template>
               <!-- 로그아웃 상태 -->

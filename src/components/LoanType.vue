@@ -32,14 +32,14 @@
               </p>
               <h3 class="text-65 mb-3 d-none d-md-block">{{ item.title }}</h3>
               <h3
-                class="text-40 mb-3 d-inline-block px-2 d-md-none mainBg text-white"
+                class="text-36 mb-3 d-inline-block px-2 d-md-none mainBg text-white"
               >
                 {{ item.title }}
               </h3>
               <p class="text-30 mb-md-5 d-none d-md-block">
                 {{ item.description }}
               </p>
-              <p class="text-22 mb-md-5 d-inline-block px-2 d-md-none bg-white">
+              <p class="text-20 mb-md-5 d-inline-block px-2 d-md-none bg-white">
                 {{ item.description }}
               </p>
               <b-btn
@@ -69,12 +69,12 @@
     >
       <b-container class="py-md-5 py-3">
         <div class="pb-md-5">
-          <h2 class="gothic text-md-50 text-30 text-center pb-md-3 mainColor">
+          <h2 class="gothic text-md-50 text-28 text-center pb-md-3 mainColor">
             대출상담 신청
           </h2>
           <p class="text-md-40 text-center gothic">
             <!-- 연락처를 남겨주시면 전문상담원이 연락드립니다. -->
-            <span class="text-md-20 opacity-50 d-block">
+            <span class="text-md-20 text-15 opacity-50 d-block">
               <font-awesome-icon icon="fa-solid fa-asterisk" /> 상담만으로는
               신용조회 기록이 절대 남지 않습니다.
             </span>
@@ -161,7 +161,7 @@
               :style="{
                 background: `url(${require('@/assets/images/btn_bg_rd.png')}) no-repeat center /cover !important`,
               }"
-              class="shadow"
+              class="shadow d-none d-md-inline-block"
             >
               <b-btn
                 class="w-100 text-md-30 text-decoration-none text-white gothic p-md-4"
@@ -325,7 +325,7 @@ export default {
           limit:
             "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>2억</span>원<span class='text-noto text-20 d-none d-md-block'> (최저 300만원)</span>",
           rate: "연 <span class='gothic'>5.9% <span class='d-none d-md-inline-block'>~ 16.9%</span></span>",
-          term: "<span class='gothic'>12 ~ 120</span>개월",
+          term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
           detailDescription: {
             // 대상
@@ -353,7 +353,7 @@ export default {
           limit:
             "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>7,000</span>만원<span class='text-noto text-20 d-none d-md-block'> (최저 300만원)</span>",
           rate: "연 <span class='gothic'>5.9% <span class='d-none d-md-inline-block'>~ 18.9%</span></span>",
-          term: "<span class='gothic'>12 ~ 120</span>개월",
+          term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
           detailDescription: {
             // 대상
@@ -380,7 +380,7 @@ export default {
           limit:
             "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>1억</span>원<span class='text-noto text-20 d-none d-md-block'> (최저 100만원)</span>",
           rate: "연 <span class='gothic'>4.9% <span class='d-none d-md-inline-block'>~ 16.9%</span></span>",
-          term: "<span class='gothic'>12 ~ 120</span>개월",
+          term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
           detailDescription: {
             // 대상
@@ -410,7 +410,7 @@ export default {
           limit:
             "<span class='d-none d-md-inline-block'>최대</span><span class='gothic'>2억</span>원<span class='text-noto text-20 d-none d-md-block'> (최저 300만원)</span>",
           rate: "연 <span class='gothic'>5.9% <span class='d-none d-md-inline-block'>~ 16.9%</span></span>",
-          term: "<span class='gothic'>12 ~ 120</span>개월",
+          term: "<span class='gothic'><span class='d-none d-md-inline-block'>12 ~ </span>120</span>개월",
           detail: true,
           detailDescription: {
             // 대상

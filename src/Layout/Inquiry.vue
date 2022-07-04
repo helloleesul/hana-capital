@@ -11,9 +11,9 @@
         <h2 class="gothic text-md-50 text-center pb-md-3 mainColor">
           대출상담 신청
         </h2>
-        <p class="text-md-40 text-center gothic">
+        <p class="text-md-40 text-center gothic m-0">
           연락처를 남겨주시면 전문상담원이 연락드립니다.
-          <span class="text-md-20 opacity-50 d-block">
+          <span class="text-md-20 text-15 opacity-50 d-block">
             <font-awesome-icon icon="fa-solid fa-asterisk" /> 상담만으로는
             신용조회 기록이 절대 남지 않습니다.
           </span>

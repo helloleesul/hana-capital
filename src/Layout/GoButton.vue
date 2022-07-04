@@ -67,13 +67,10 @@
           <b-btn
             class="w-100 text-md-30 text-20 text-decoration-none text-white gothic p-md-4"
             variant="link"
+            href="tel:1600-1481"
           >
-            <img
-              :src="require('@/assets/images/ico_headset.png')"
-              alt="상담"
-              class="d-none d-md-inline-block"
-            />
-            전화상담 신청하기</b-btn
+            <font-awesome-icon icon="phone" class="" />
+            1644-1481</b-btn
           >
         </b-col>
         <b-col
@@ -85,12 +82,9 @@
           <b-btn
             class="w-100 text-md-30 text-20 text-decoration-none text-white gothic p-md-4"
             variant="link"
-            ><img
-              :src="require('@/assets/images/ico_graph.png')"
-              alt="그래프"
-              class="d-none d-md-inline-block"
-            />
-            간편 한도조회</b-btn
+            to="/inquiry"
+          >
+            상담접수</b-btn
           >
         </b-col>
       </b-row>

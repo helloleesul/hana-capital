@@ -2,9 +2,9 @@
   <footer id="footer">
     <!-- 관리자화면 -->
     <template v-if="path.includes('/admin')">
-      <section class="py-5 bg-light">
+      <section class="py-md-5 py-2 bg-light">
         <b-container>
-          <p class="m-0 opacity-50 text-center text-17">
+          <p class="m-0 opacity-50 text-center text-md-17 text-15">
             copyright © sitename.co.kr. All rights reserved.
           </p>
         </b-container>
@@ -16,14 +16,18 @@
         <b-container class="py-md-5 py-3 gothic">
           <b-row class="align-items-center">
             <b-col
-              class="text-center text-md-start mb-3 mb-md-0"
+              class="text-center text-md-end mb-3 mb-md-0"
               cols="12"
               md="6"
             >
-              <img :src="require('@/assets/images/pig.png')" alt="" />
+              <img
+                :src="require('@/assets/images/pig.png')"
+                alt=""
+                class="w-100 opacity-50"
+              />
             </b-col>
             <b-col
-              class="text-md-36 text-24 text-center text-md-start"
+              class="text-md-36 text-22 text-center text-md-end"
               cols="12"
               md="6"
             >
@@ -38,7 +42,7 @@
           </b-row>
         </b-container>
       </section>
-      <section class="notice bg-light">
+      <!-- <section class="notice bg-light">
         <b-container class="py-md-5 py-2">
           <ul class="text-md-17 text-15">
             <li>
@@ -110,11 +114,11 @@
             </li>
           </ul>
         </b-container>
-      </section>
-      <section class="address py-md-5 py-3 mb-md-0 mb-5 opacity-50">
+      </section> -->
+      <section class="address py-md-5 py-3 mb-md-0 mb-5 opacity-50 bg-light">
         <b-container>
           <b-row class="border-bottom pb-md-4 pb-2 align-items-center">
-            <b-col class="mb-md-0 mb-2" cols="7" md="5">
+            <b-col class="mb-md-0 mb-2" cols="6" md="5">
               <b-navbar-brand tag="h1" class="m-0 p-0 fw-900 text-25 hana cm">
                 <img
                   src="@/assets/images/logo.svg"
@@ -125,7 +129,7 @@
                 이도금융
               </b-navbar-brand>
             </b-col>
-            <b-col class="footer-btns text-end" cols="5" md="7">
+            <b-col class="footer-btns text-end" cols="6" md="7">
               <b-button v-b-modal.check-1 variant="link text-14 text-md-17"
                 >개인정보취급방침</b-button
               >

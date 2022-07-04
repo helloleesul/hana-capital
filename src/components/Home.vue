@@ -11,7 +11,7 @@
         <h2 class="hana b text-25 text-center pb-md-3 pb-1 mainColor">
           편한아파트론
         </h2>
-        <p class="text-md-50 text-32 text-center gothic lh-sm">
+        <p class="text-md-50 text-30 text-center gothic lh-sm">
           쉽다! 빠르다! <br class="d-block d-md-none" />아파트소유자 신용대출
           <br />
           <span :style="{ color: bgGradient[5] }">저당 설정없이 </span>
@@ -26,7 +26,7 @@
               alt="최저금리"
               class="mb-md-5 mb-2"
             />
-            <p class="text-md-40 text-20 gothic r m-0 lh-sm">
+            <p class="text-md-40 text-18 gothic r m-0 lh-sm">
               <span
                 class="text-md-20 text-18 d-block gothic"
                 :style="{ color: bgGradient[5] }"
@@ -42,7 +42,7 @@
               alt="최대한도"
               class="mb-md-5 mb-2"
             />
-            <p class="text-md-40 text-20 gothic r m-0 lh-sm">
+            <p class="text-md-40 text-18 gothic r m-0 lh-sm">
               <span
                 class="text-md-20 text-18 d-block gothic"
                 :style="{ color: bgGradient[5] }"
@@ -58,7 +58,7 @@
               alt="상환기간"
               class="mb-md-5 mb-2"
             />
-            <p class="text-md-40 text-20 gothic r m-0 lh-sm">
+            <p class="text-md-40 text-18 gothic r m-0 lh-sm">
               <span
                 class="text-md-20 text-18 d-block gothic"
                 :style="{ color: bgGradient[5] }"
@@ -79,14 +79,16 @@
             <b-btn
               class="w-100 text-md-30 text-20 text-decoration-none text-white gothic p-md-4"
               variant="link"
+              href="tel:1600-1481"
             >
               <img
                 :src="require('@/assets/images/ico_headset.png')"
                 alt="상담"
                 class="d-none d-md-inline-block"
               />
-              전화상담 신청하기</b-btn
-            >
+              전화상담
+              <span class="d-none d-md-inline-block">신청하기</span>
+            </b-btn>
           </b-col>
           <b-col
             :style="{
@@ -126,7 +128,7 @@
               <h3 class="hana b mainColor2 text-md-25 text-22 mb-3">
                 대출대상
               </h3>
-              <p class="m-0 text-20">
+              <p class="m-0 text-md-20 text-18">
                 * 본인명의 및 배우자 공동명의 아파트 및 오피스텔 소유 고객님
                 <br />
                 * KB 시세 2억원 초과 <br />
@@ -143,7 +145,7 @@
               <h3 class="hana b mainColor2 text-md-25 text-22 mb-3">
                 한도 및 금리
               </h3>
-              <p class="m-0 text-20">
+              <p class="m-0 text-md-20 text-18">
                 * 최저 300만원 ~ 최대 1억5천만원 <br />
                 * 연 7.9~ 20% 이내 <br />
                 * (연체이자율 : 약정이율 + 3%, 단 법정최고금리 연 20% 이내)
@@ -158,7 +160,7 @@
               <h3 class="hana b mainColor2 text-md-25 text-22 mb-3">
                 기간 및 상환방법
               </h3>
-              <p class="m-0 text-20">
+              <p class="m-0 text-md-20 text-18">
                 * 최저 12개월 ~ 최대 160개월
                 <br />
                 * 원리금균등분할상환, 만기일시상환
@@ -173,7 +175,7 @@
               <h3 class="hana b mainColor2 text-md-25 text-22 mb-3">
                 이자부과시기
               </h3>
-              <p class="m-0 text-20">* 매출후취</p>
+              <p class="m-0 text-md-20 text-18">* 매출후취</p>
             </b-row>
           </b-col>
           <b-col cols="12" md="6">
@@ -184,7 +186,9 @@
               <h3 class="hana b mainColor2 text-md-25 text-22 mb-3">
                 대출부대비용
               </h3>
-              <p class="m-0 text-20">* 5천만원 초과 실행시 인지세발생</p>
+              <p class="m-0 text-md-20 text-18">
+                * 5천만원 초과 실행시 인지세발생
+              </p>
             </b-row>
           </b-col>
           <b-col cols="12" md="6">
@@ -195,7 +199,7 @@
               <h3 class="hana b mainColor2 text-md-25 text-22 mb-3">
                 중도상환수수료율
               </h3>
-              <p class="m-0 text-20">
+              <p class="m-0 text-md-20 text-18">
                 * 중도 2% 사용기간마다 일시 차감되는 방식으로 차등적용되는
                 상품이며, 3년 경과시 중도상환수수료는 없습니다.
               </p>

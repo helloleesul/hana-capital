@@ -3,15 +3,15 @@
     <b-container v-if="errorPage">
       <ErrorPage />
     </b-container>
-    <b-container v-else>
-      <b-row class="title mb-3">
-        <p class="text-30 gothic m-0">상담신청 상세</p>
+    <b-container v-else class="py-md-5 py-3">
+      <b-row class="title mb-3 text-md-start text-center">
+        <p class="text-30 gothic m-0 p-0">상담신청 상세</p>
       </b-row>
       <!-- {{item}} -->
       <!-- {{item.comments}} -->
       <b-row class="align-items-start justify-content-between pt-4">
         <!-- 상담신청 상세 -->
-        <b-col class="me-5">
+        <b-col cols="12" md="6">
           <b-row class="mb-3 align-items-center">
             <b-col>
               <b-btn
@@ -71,7 +71,7 @@
         </b-col>
 
         <!-- 처리기록 상세 -->
-        <b-col>
+        <b-col cols="12" md="6">
           <!-- 작성버튼 -->
           <b-row class="mb-3 align-items-center">
             <b-col class="col-8">
