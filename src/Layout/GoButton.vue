@@ -70,7 +70,7 @@
             href="tel:1600-1481"
           >
             <font-awesome-icon icon="phone" class="" />
-            1644-1481</b-btn
+            1600-1481</b-btn
           >
         </b-col>
         <b-col

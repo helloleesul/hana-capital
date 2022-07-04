@@ -90,7 +90,7 @@
       <section class="border-top py-md-5 py-3">
         <b-container>
           <div
-            class="gothic text-center"
+            class="gothic text-center background-none"
             :style="{
               background: `url(${item.bgImg[0]}) no-repeat left bottom, url(${item.bgImg[1]}) no-repeat right bottom`,
             }"
